@@ -481,6 +481,18 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+<div class="nav-drawer" id="nav-drawer">
+<ul>
+  <li><a href="curve.html">La Courbe</a></li>
+  <li><a href="compression.html" class="active">Compression</a></li>
+  <li><a href="premium.html">Prime AC</a></li>
+  <li><a href="shadow.html">Production</a></li>
+  <li><a href="methodology.html">Methode</a></li>
+  <li><a href="data.html">Donnees</a></li>
+</ul>
+<a class="nav-drawer-lang" href="en/compression.html">EN &rarr;</a>
+</div>
+
 
 <section class="hero">
   <p class="hero-eyebrow">02 — Compression</p>
@@ -738,6 +750,17 @@
       });
     });
   })();
+</script>
+<script>
+(function(){
+  var b=document.getElementById('nav-burger');
+  var d=document.getElementById('nav-drawer');
+  if(!b||!d)return;
+  b.addEventListener('click',function(){b.classList.toggle('open');d.classList.toggle('open');});
+  d.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){b.classList.remove('open');d.classList.remove('open');});
+  });
+})();
 </script>
 </body>
 </html>
