@@ -452,18 +452,6 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
-<div class="nav-drawer" id="nav-drawer">
-<ul>
-  <li><a href="curve.html">The Curve</a></li>
-  <li><a href="compression.html">Compression</a></li>
-  <li><a href="premium.html">AC Premium</a></li>
-  <li><a href="shadow.html">Output</a></li>
-  <li><a href="methodology.html" class="active">Method</a></li>
-  <li><a href="data.html">Data</a></li>
-</ul>
-<a class="nav-drawer-lang" href="../methodology.html">FR &rarr;</a>
-</div>
-
 
 <div class="page-header">
   <p class="page-eyebrow">Methodology</p>
@@ -735,17 +723,6 @@
       });
     });
   })();
-</script>
-<script>
-(function(){
-  var b=document.getElementById('nav-burger');
-  var d=document.getElementById('nav-drawer');
-  if(!b||!d)return;
-  b.addEventListener('click',function(){b.classList.toggle('open');d.classList.toggle('open');});
-  d.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){b.classList.remove('open');d.classList.remove('open');});
-  });
-})();
 </script>
 </body>
 </html>
