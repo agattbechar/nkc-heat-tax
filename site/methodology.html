@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0D14">
+  <title>Méthodologie — La Taxe Canicule</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:          #0A0D14;
+      --bg-raised:   #0F1420;
+      --bg-card:     #131824;
+      --border:      #1E2535;
+
+      --text:        #D8E0F0;
+      --text-mid:    #7A8AAA;
+      --text-dim:    #3A4A6A;
+
+      --amber:       #D4893A;
+      --amber-dim:   rgba(212, 137, 58, 0.06);
+      --amber-muted: #7A4A1A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Navigation ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 13, 20, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .nav-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-title span { color: var(--amber); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); opacity: 0.8; }
+
+    .nav-lang {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      transition: all 0.2s;
+    }
+
+    .nav-lang:hover { color: var(--amber); border-color: var(--amber-muted); }
+
+    /* ── Page header ────────────────────────────────────────── */
+    .page-header {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 8rem 1.5rem 3.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber);
+      opacity: 0.7;
+      margin-bottom: 1rem;
+    }
+
+    .page-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .page-intro {
+      color: var(--text-mid);
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      max-width: 620px;
+      line-height: 1.8;
+    }
+
+    /* ── Layout ─────────────────────────────────────────────── */
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0 4rem;
+      align-items: start;
+    }
+
+    /* ── TOC ────────────────────────────────────────────────── */
+    .toc {
+      position: sticky;
+      top: 72px;
+      padding-top: 3rem;
+    }
+
+    .toc-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.2rem;
+    }
+
+    .toc ul { list-style: none; }
+
+    .toc li { margin-bottom: 0.7rem; }
+
+    .toc a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+      line-height: 1.5;
+      display: block;
+    }
+
+    .toc a:hover { color: var(--amber); }
+
+    /* ── Main ───────────────────────────────────────────────── */
+    .main { padding-top: 3rem; }
+
+    .method-section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .method-section:last-child { border-bottom: none; }
+
+    .method-number {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      opacity: 0.7;
+      margin-bottom: 0.4rem;
+    }
+
+    .method-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .method-section p {
+      color: var(--text-mid);
+      font-size: clamp(0.92rem, 2vw, 1rem);
+      margin-bottom: 1rem;
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    .method-section p strong { color: var(--text); font-weight: 600; }
+
+    /* ── Assumption ─────────────────────────────────────────── */
+    .assumption {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--amber-muted);
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+      max-width: 580px;
+    }
+
+    .assumption-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      opacity: 0.7;
+      margin-bottom: 0.6rem;
+    }
+
+    .assumption p {
+      color: var(--text-mid) !important;
+      margin-bottom: 0.4rem !important;
+      font-size: 0.92rem !important;
+      max-width: none !important;
+    }
+
+    .assumption p:last-child { margin-bottom: 0 !important; }
+    .assumption p strong { color: var(--text) !important; }
+
+    /* ── Formula ────────────────────────────────────────────── */
+    .formula {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+      font-family: 'DM Mono', monospace;
+      font-size: clamp(0.72rem, 1.5vw, 0.82rem);
+      color: var(--text);
+      line-height: 1.9;
+      overflow-x: auto;
+      max-width: 580px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .formula .comment { color: var(--text-dim); }
+    .formula .val { color: var(--amber); }
+
+    /* ── Citation ───────────────────────────────────────────── */
+    .citation {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      font-style: italic;
+      padding-left: 1rem;
+      border-left: 1px solid var(--border);
+      margin: 1.2rem 0;
+      line-height: 1.7;
+      max-width: 540px;
+    }
+
+    /* ── Limitations ────────────────────────────────────────── */
+    .limitations {
+      background: var(--amber-dim);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--amber);
+      padding: 1.5rem 1.8rem;
+      margin: 1.5rem 0;
+      max-width: 580px;
+    }
+
+    .limitations-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+
+    .limitations ul { list-style: none; }
+
+    .limitations li {
+      color: var(--text-mid);
+      font-size: 0.92rem;
+      padding: 0.4rem 0 0.4rem 1.2rem;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .limitations li:last-child { border-bottom: none; }
+
+    .limitations li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: var(--amber-muted);
+    }
+
+    /* ── Footer ─────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--amber); }
+
+    .footer-author {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+      line-height: 2;
+    }
+
+    .footer-author a {
+      color: var(--text-mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-dim);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+
+    .footer-author a:hover { color: var(--amber); }
+
+    /* ── Animations ─────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-header { animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+    /* ── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 700px) {
+      .content { grid-template-columns: 1fr; }
+      .toc { display: none; }
+      .nav-links { display: none; }
+      .formula { font-size: 0.7rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────── -->
+<nav>
+  <a class="nav-title" href="index.html">La Taxe <span>Canicule</span></a>
+  <ul class="nav-links">
+    <li><a href="curve.html">La Courbe</a></li>
+    <li><a href="compression.html">Compression</a></li>
+    <li><a href="premium.html">Prime AC</a></li>
+    <li><a href="shadow.html">Production</a></li>
+    <li><a href="methodology.html" class="active">Méthode</a></li>
+    <li><a href="data.html">Données</a></li>
+  </ul>
+  <a class="nav-lang" href="en/methodology.html">EN</a>
+</nav>
+
+<!-- ── Page header ──────────────────────────────────────────── -->
+<div class="page-header">
+  <p class="page-eyebrow">Méthodologie</p>
+  <h1 class="page-title">Comment nous avons mesuré la taxe canicule</h1>
+  <p class="page-intro">
+    Toutes les hypothèses sont déclarées. Toutes les sources sont citées.
+    Toutes les limitations sont nommées avant que vous ne les trouviez.
+    Cette analyse est descriptive — nous mesurons, nous ne causons pas.
+  </p>
+</div>
+
+<!-- ── Content ──────────────────────────────────────────────── -->
+<div class="content">
+
+  <aside class="toc">
+    <p class="toc-title">Sur cette page</p>
+    <ul>
+      <li><a href="#principe">Principe</a></li>
+      <li><a href="#temperature">Température</a></li>
+      <li><a href="#courbe">Courbe OIT/ISO</a></li>
+      <li><a href="#compression">Compression</a></li>
+      <li><a href="#salaire">Ancrage salarial</a></li>
+      <li><a href="#ac">Prime AC</a></li>
+      <li><a href="#production">Production fantôme</a></li>
+      <li><a href="#limitations">Limitations</a></li>
+    </ul>
+  </aside>
+
+  <main class="main">
+
+    <!-- Principe -->
+    <div class="method-section" id="principe">
+      <p class="method-number">Principe fondamental</p>
+      <h2 class="method-title">Mesure, pas modèle.</h2>
+      <p>
+        Cette analyse ne revendique aucune causalité. Nous ne disons pas
+        que la chaleur cause un sous-développement économique. Nous disons :
+        à ces températures, ces travailleurs produisent moins. C'est une
+        mesure, pas une inférence.
+      </p>
+      <p>
+        Pas de régressions. Pas d'identification. Juste des données horaires,
+        une courbe internationale, et de l'arithmétique transparente.
+      </p>
+      <p>
+        Toutes les estimations sont des <strong>bornes inférieures</strong>
+        sauf mention contraire. Quand une hypothèse peut aller dans les deux
+        sens, nous choisissons la plus conservatrice.
+      </p>
+    </div>
+
+    <!-- Température -->
+    <div class="method-section" id="temperature">
+      <p class="method-number">01 — Données de température</p>
+      <h2 class="method-title">Open-Meteo, 2019–2025.</h2>
+      <p>
+        Données horaires de température à 2 mètres du sol pour Nouakchott
+        (lat 18,0858 · lon −15,9785), issues de l'API historique Open-Meteo.
+        Période : janvier 2019 – décembre 2025. Fuseau : UTC+0.
+      </p>
+      <p>
+        Analyse limitée aux heures de travail :
+        <strong>08h00–18h00</strong>, soit 10 heures par jour.
+      </p>
+
+      <div class="assumption">
+        <p class="assumption-label">Hypothèse</p>
+        <p><strong>Fenêtre de travail : 08h00–18h00.</strong></p>
+        <p>Raison : heures standard en Mauritanie.</p>
+        <p>Alternative : 07h00–19h00 augmenterait les heures comptabilisées d'environ 20%.</p>
+      </div>
+
+      <div class="citation">
+        Open-Meteo Historical Weather API. Licence CC BY 4.0.<br>
+        Modèle ERA5, Copernicus / ECMWF.<br>
+        open-meteo.com/en/docs/historical-weather-api
+      </div>
+    </div>
+
+    <!-- Courbe -->
+    <div class="method-section" id="courbe">
+      <p class="method-number">02 — La courbe OIT/ISO</p>
+      <h2 class="method-title">Nous n'avons pas inventé cette courbe.</h2>
+      <p>
+        La courbe de capacité de travail par température vient de l'OIT
+        et de la norme ISO 7243:2017. Nous l'appliquons à
+        <strong>intensité modérée</strong> (200–300 W) — vendeurs de marché,
+        maçons, dockers du port de Pêche.
+      </p>
+
+      <div class="formula">
+        <span class="comment"># Courbe OIT/ISO — température °C → capacité %</span><br>
+        <span class="val">24°C → 100%</span> &nbsp; <span class="val">28°C → 88%</span> &nbsp; <span class="val">30°C → 80%</span><br>
+        <span class="val">32°C → 70%</span>  &nbsp; <span class="val">34°C → 50%</span> &nbsp; <span class="val">36°C → 40%</span><br>
+        <span class="val">38°C → 30%</span>  &nbsp; <span class="val">40°C → 20%</span> &nbsp; <span class="val">42°C → 10%</span><br>
+        <span class="comment"># Interpolation linéaire entre les points</span><br>
+        capacité(T) = interp(T, courbe_OIT_ISO)
+      </div>
+
+      <div class="assumption">
+        <p class="assumption-label">Hypothèse</p>
+        <p><strong>Intensité modérée pour les trois professions cibles.</strong></p>
+        <p>Raison : travail debout avec port de charges légères — classification ISO 7243.</p>
+        <p>Alternative : intensité élevée (maçonnerie lourde) montrerait plus de compression. Modéré est le choix central et conservateur.</p>
+      </div>
+
+      <div class="citation">
+        OIT (2019). <em>Working on a Warmer Planet.</em> Genève : OIT. ISBN 978-92-2-132968-9.<br><br>
+        ISO 7243:2017. <em>Ergonomics of the thermal environment — Assessment of heat stress
+        using the WBGT index.</em> Genève : ISO.
+      </div>
+    </div>
+
+    <!-- Compression -->
+    <div class="method-section" id="compression">
+      <p class="method-number">03 — Taux de compression</p>
+      <h2 class="method-title">Capacité effective = somme horaire.</h2>
+      <p>
+        Pour chaque heure de 2019–2025, nous appliquons la courbe à la
+        température observée. La somme donne la capacité effective.
+      </p>
+
+      <div class="formula">
+        <span class="comment"># Capacité effective mensuelle</span><br>
+        cap_effective = Σ capacité(temp_h)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pour h dans heures_travail_du_mois<br><br>
+        <span class="comment"># Compression mensuelle</span><br>
+        compression% = (heures_totales − cap_effective)<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷ heures_totales × 100<br><br>
+        <span class="comment"># Résultat annuel moyen 2019–2025</span><br>
+        compression = <span class="val">20,0%</span> &nbsp;·&nbsp; capacité = <span class="val">80,0%</span>
+      </div>
+
+      <p>
+        Le résultat est stable sur toute la période — entre 78,3% et 82,4%.
+        Ce n'est pas un artefact d'une année exceptionnelle.
+      </p>
+    </div>
+
+    <!-- Salaire -->
+    <div class="method-section" id="salaire">
+      <p class="method-number">04 — Ancrage salarial</p>
+      <h2 class="method-title">SMIG : la borne inférieure.</h2>
+      <p>
+        Estimations monétaires ancrées au <strong>SMIG mauritanien</strong>
+        (3 000 MRU/mois, ILO ILOSTAT 2022). Utiliser le SMIG
+        sous-estime la perte réelle — les travailleurs informels gagnent souvent plus.
+      </p>
+
+      <div class="formula">
+        <span class="comment"># Dérivation horaire</span><br>
+        SMIG mensuel   = <span class="val">3 000 MRU</span><br>
+        SMIG horaire   = 3 000 ÷ 26 jours ÷ 8h = <span class="val">14,42 MRU/h</span><br><br>
+        <span class="comment"># Trois scénarios salariaux</span><br>
+        conservateur   = <span class="val">14,42 MRU/h</span>  (1,0× SMIG)<br>
+        central        = <span class="val">20,19 MRU/h</span>  (1,4× SMIG)<br>
+        haut           = <span class="val">25,96 MRU/h</span>  (1,8× SMIG)
+      </div>
+
+      <div class="citation">
+        ILO ILOSTAT. Dataset EAR_INEE_CUR_NB_A.<br>
+        Mauritanie, salaire minimum mensuel, 2022. Valeur : 3 000 MRU.
+      </div>
+    </div>
+
+    <!-- AC -->
+    <div class="method-section" id="ac">
+      <p class="method-number">05 — Prime AC</p>
+      <h2 class="method-title">Argent réellement dépensé.</h2>
+      <p>
+        La prime AC est de l'argent effectivement payé à SOMELEC.
+        Stock commercial estimé à partir du Plan directeur JICA 2018,
+        Table I-14.
+      </p>
+
+      <div class="formula">
+        <span class="comment"># Stock commercial (JICA 2018)</span><br>
+        commercial_pur  = 952 ha ÷ 120 m²   = <span class="val">79 333 unités</span><br>
+        mixte_RDC       = 1 270 ha × 0,15 × 30% ÷ 120 m² = <span class="val">4 763</span><br>
+        bureaux_govt    = 204 ha × 0,15 ÷ 30 m²  = <span class="val">10 200</span><br>
+        total           = <span class="val">94 296 espaces</span><br><br>
+        <span class="comment"># Taux d'équipement : 1 sur 3</span><br>
+        unités_clim     = 94 296 × 1/3 = <span class="val">31 432</span><br><br>
+        <span class="comment"># Coût annuel (scénario central)</span><br>
+        coût = unités × 2,5 kW × 0,75 × heures × <span class="val">5,903 MRU/kWh</span>
+      </div>
+
+      <div class="assumption">
+        <p class="assumption-label">Hypothèse principale</p>
+        <p><strong>1 espace commercial sur 3 est climatisé.</strong></p>
+        <p>
+          Raison : connaissance locale — la plupart des commerces ont un
+          climatiseur dans le bureau du propriétaire, pas une couverture totale.
+        </p>
+        <p>Alternative : 1 sur 5 (conservateur) à 1 sur 2 (haut). Les trois scénarios sont reportés.</p>
+      </div>
+
+      <div class="citation">
+        JICA (2018). <em>Nouakchott City Urban Master Plan.</em> Table I-14.<br>
+        openjicareport.jica.go.jp/pdf/12324729.pdf<br><br>
+        SOMELEC. <em>Tarifs Basse Tension.</em> Codes 7106–7136. Taux : 5,903 MRU/kWh.
+      </div>
+    </div>
+
+    <!-- Production -->
+    <div class="method-section" id="production">
+      <p class="method-number">06 — Production fantôme</p>
+      <h2 class="method-title">Ce n'est pas le PIB.</h2>
+      <p>
+        Le chiffre de 80% n'est pas une mesure des comptes nationaux.
+        C'est un scalaire appliqué aux données de température observées.
+        La taxe thermique totale additionne deux composantes indépendantes :
+        perte de revenus des travailleurs et prime de refroidissement du secteur commercial.
+      </p>
+
+      <div class="formula">
+        <span class="comment"># Taxe thermique totale</span><br>
+        perte_revenus  = 120 000 × 14 742 MRU = <span class="val">1 769M MRU</span><br>
+        prime_AC       = 31 432 unités × consommation × tarif = <span class="val">869M MRU</span><br>
+        ────────────────────────────────────────────<br>
+        total          = <span class="val">2 638M MRU ≈ $73M USD / an</span>
+      </div>
+    </div>
+
+    <!-- Limitations -->
+    <div class="method-section" id="limitations">
+      <p class="method-number">07 — Limitations</p>
+      <h2 class="method-title">Ce que cette analyse ne dit pas.</h2>
+      <p>
+        Nous nommons nos limitations avant que vous ne les trouviez.
+      </p>
+
+      <div class="limitations">
+        <p class="limitations-title">Ce que cette analyse ne revendique pas</p>
+        <ul>
+          <li>Ne revendique pas que la chaleur cause une baisse du PIB</li>
+          <li>Ne prédit pas les pertes futures ni les impacts climatiques</li>
+          <li>Ne couvre pas le secteur agricole ni la pêche</li>
+          <li>Ne représente pas tous les travailleurs — secteur informel extérieur uniquement</li>
+          <li>La courbe de capacité est pour l'intensité modérée uniquement</li>
+          <li>Le stock commercial OSM est une borne inférieure (~15% du stock réel)</li>
+          <li>Le SMIG 2022 peut avoir été révisé — toutes les estimations monétaires sont des bornes inférieures</li>
+          <li>Le taux AC (1 sur 3) est une estimation locale, pas une mesure directe</li>
+          <li>Ne tient pas compte des travailleurs saisonniers quittant Nouakchott en été</li>
+        </ul>
+      </div>
+
+      <p>
+        Ces limitations délimitent l'analyse sans l'invalider. Toutes les
+        estimations vont dans le même sens : la vraie taxe thermique est
+        probablement <strong>plus élevée</strong> que ce que nous reportons.
+      </p>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── Footer ────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="data.html">Données</a>
+    <a href="en/methodology.html">English</a>
+    <a href="https://github.com/agattbechar" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p class="footer-author">
+    <a href="https://github.com/agattbechar" target="_blank" rel="noopener">Bechar Agatt</a>
+    &nbsp;·&nbsp; Nouakchott, Mauritanie &nbsp;·&nbsp; 2026<br>
+    Open-Meteo CC BY 4.0 &nbsp;·&nbsp; OIT (2019) &nbsp;·&nbsp; ISO 7243:2017
+    &nbsp;·&nbsp; JICA 2018 &nbsp;·&nbsp; SOMELEC &nbsp;·&nbsp; ILO ILOSTAT
+  </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0D14">
+  <title>The Curve — The Heat Tax</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#0A0D14;--bg-raised:#0F1420;--bg-card:#131824;--border:#1E2535;
+      --text:#D8E0F0;--text-mid:#7A8AAA;--text-dim:#3A4A6A;
+      --amber:#D4893A;--amber-dim:rgba(212,137,58,0.06);--amber-muted:#7A4A1A;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);color:var(--text);font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.75;font-size:18px;-webkit-font-smoothing:antialiased}
+    nav{position:fixed;top:0;left:0;right:0;background:rgba(10,13,20,0.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:100;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:52px}
+    .nav-title{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:.04em;color:var(--text);text-decoration:none}
+    .nav-title span{color:var(--amber)}
+    .nav-links{display:flex;gap:1.8rem;list-style:none}
+    .nav-links a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color .2s}
+    .nav-links a:hover{color:var(--amber)}
+    .nav-links a.active{color:var(--amber);opacity:.8}
+    .nav-lang{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);text-decoration:none;border:1px solid var(--border);padding:4px 10px;transition:all .2s}
+    .nav-lang:hover{color:var(--amber);border-color:var(--amber-muted)}
+    .hero{min-height:70vh;display:flex;flex-direction:column;justify-content:flex-end;padding:7rem 1.5rem 4rem;max-width:900px;margin:0 auto;position:relative}
+    .hero::before{content:'';position:absolute;top:20%;right:0;width:50vw;height:50vw;max-width:400px;max-height:400px;background:radial-gradient(ellipse,rgba(212,137,58,0.05) 0%,transparent 70%);pointer-events:none}
+    .hero>*{position:relative}
+    .hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1rem;animation:fadeUp .6s cubic-bezier(.16,1,.3,1) both}
+    .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,5rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;color:var(--text);margin-bottom:1.2rem;animation:fadeUp .6s .08s cubic-bezier(.16,1,.3,1) both}
+    .hero-title em{color:var(--amber);font-style:normal}
+    .hero-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(1rem,2.5vw,1.2rem);font-style:italic;color:var(--text-mid);max-width:560px;line-height:1.7;animation:fadeUp .6s .16s cubic-bezier(.16,1,.3,1) both}
+    .body{max-width:900px;margin:0 auto;padding:0 1.5rem 6rem}
+    .chart-wrap{margin:3rem 0;border:1px solid var(--border);overflow:hidden;background:var(--bg-card);position:relative}
+    .chart-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--amber),transparent);opacity:.3;z-index:1}
+    .chart-wrap img{width:100%;display:block;filter:brightness(.88) saturate(.9);mix-blend-mode:lighten}
+    .chart-caption{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.05em;color:var(--text-dim);padding:.7rem 1rem;border-top:1px solid var(--border);line-height:1.6}
+    .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:3rem 0}
+    .number-cell{background:var(--bg-raised);padding:1.4rem}
+    .number-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.5rem}
+    .number-value{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700;color:var(--amber);line-height:1.1;margin-bottom:.3rem}
+    .number-sub{font-family:'DM Mono',monospace;font-size:8px;color:var(--text-dim);line-height:1.5}
+    .prose{max-width:640px;margin:3rem 0}
+    .prose p{color:var(--text-mid);font-size:clamp(.95rem,2vw,1.05rem);line-height:1.85;margin-bottom:1.2rem}
+    .prose p strong{color:var(--text);font-weight:600}
+    .prose p:last-child{margin-bottom:0}
+    .curve-table{width:100%;border-collapse:collapse;margin:2.5rem 0;max-width:640px}
+    .curve-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);text-align:left;padding:.6rem 1rem;border-bottom:1px solid var(--border)}
+    .curve-table td{font-size:clamp(.88rem,2vw,.95rem);color:var(--text-mid);padding:.75rem 1rem;border-bottom:1px solid var(--border);vertical-align:middle}
+    .curve-table tr:last-child td{border-bottom:none}
+    .curve-table td.temp{font-family:'DM Mono',monospace;font-size:.9rem;color:var(--text)}
+    .curve-table td.cap{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--amber)}
+    .curve-table td.cap.low{color:#C05050}
+    .curve-table td.cap.ok{color:var(--text-mid)}
+    .bar-cell{width:140px}
+    .bar-bg{background:var(--bg-card);height:6px;border-radius:2px;overflow:hidden}
+    .bar-fill{height:100%;border-radius:2px;background:var(--amber)}
+    .bar-fill.low{background:#C05050}
+    .insight{background:var(--amber-dim);border:1px solid var(--border);border-left:2px solid var(--amber);padding:1.4rem 1.6rem;margin:2.5rem 0;max-width:640px}
+    .insight p{font-size:clamp(.95rem,2vw,1.05rem);color:var(--text);margin:0 0 .5rem;line-height:1.7}
+    .insight p:last-child{margin-bottom:0}
+    .insight p.dim{color:var(--text-mid);font-style:italic;font-size:.9rem}
+    .professions{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);margin:2.5rem 0}
+    .profession{background:var(--bg-raised);padding:1.4rem}
+    .profession-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:.4rem}
+    .profession-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin-bottom:.8rem}
+    .profession-desc{font-size:.88rem;color:var(--text-mid);line-height:1.6}
+    .section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);opacity:.7;margin-bottom:1.2rem}
+    .divider{border:none;border-top:1px solid var(--border);margin:3rem 0}
+    .page-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border);padding:2rem 0;margin-top:2rem;gap:1rem;flex-wrap:wrap}
+    .page-nav a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color .2s}
+    .page-nav a:hover{color:var(--amber)}
+    .page-nav a.next{color:var(--amber)}
+    footer{border-top:1px solid var(--border);padding:3rem 1.5rem;max-width:900px;margin:0 auto}
+    .footer-links{display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem}
+    .footer-links a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);text-decoration:none;transition:color .2s}
+    .footer-links a:hover{color:var(--amber)}
+    .footer-author{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-dim);line-height:2}
+    .footer-author a{color:var(--text-mid);text-decoration:none;border-bottom:1px solid var(--text-dim);padding-bottom:1px;transition:color .2s}
+    .footer-author a:hover{color:var(--amber)}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:640px){.nav-links{display:none}.numbers{grid-template-columns:1fr 1fr}.professions{grid-template-columns:1fr}.bar-cell{display:none}.curve-table th:last-child{display:none}}
+  </style>
+</head>
+<body>
+<nav>
+  <a class="nav-title" href="index.html">The <span>Heat Tax</span></a>
+  <ul class="nav-links">
+    <li><a href="curve.html" class="active">The Curve</a></li>
+    <li><a href="compression.html">Compression</a></li>
+    <li><a href="premium.html">AC Premium</a></li>
+    <li><a href="shadow.html">Output</a></li>
+    <li><a href="methodology.html">Method</a></li>
+    <li><a href="data.html">Data</a></li>
+  </ul>
+  <a class="nav-lang" href="../curve.html">FR</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">01 — The Curve</p>
+  <h1 class="hero-title">At <em>34°C</em>, a worker<br>runs at 50%.</h1>
+  <p class="hero-sub">
+    This is not an opinion. It is the international occupational heat stress
+    standard — ILO (2019) + ISO 7243:2017. We applied it to six years of
+    hourly data for Nouakchott.
+  </p>
+</section>
+
+<div class="body">
+  <div class="chart-wrap">
+    <img src="../assets/charts/activity_curve.png" alt="Work capacity by temperature">
+    <p class="chart-caption">Work capacity (%) by temperature — ILO (2019) + ISO 7243:2017, moderate intensity. Market vendors, construction workers, port workers.</p>
+  </div>
+
+  <div class="numbers">
+    <div class="number-cell">
+      <p class="number-label">Critical threshold</p>
+      <p class="number-value">33°C</p>
+      <p class="number-sub">inflection point — capacity drops fast</p>
+    </div>
+    <div class="number-cell">
+      <p class="number-label">At 34°C</p>
+      <p class="number-value">50%</p>
+      <p class="number-sub">of capacity — exactly half</p>
+    </div>
+    <div class="number-cell">
+      <p class="number-label">Avg. temp October</p>
+      <p class="number-value">32.5°C</p>
+      <p class="number-sub">worst month — 37.8% compression</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      The work capacity curve is not something we invented. It comes from the
+      ILO report <em>Working on a Warmer Planet</em> (2019) and ISO 7243:2017 —
+      the international occupational heat stress standards used by governments,
+      employers, and researchers worldwide.
+    </p>
+    <p>
+      We apply it at <strong>moderate intensity</strong> — 200 to 300 watts of
+      metabolic rate. That is the level representative of a market vendor
+      standing at a stall, a bricklayer carrying blocks, or a docker unloading
+      crates. Not an air-conditioned office, not extreme physical labour.
+      The middle of Nouakchott.
+    </p>
+    <p>
+      Below 24°C, capacity is 100%. Heat costs nothing. Above 33°C, the curve
+      drops quickly. At 34°C, a worker can only produce
+      <strong>half of what they would in normal conditions</strong>.
+      At 40°C, they are running at 20%.
+    </p>
+  </div>
+
+  <hr class="divider">
+  <p class="section-label">The curve — point by point</p>
+
+  <table class="curve-table">
+    <thead>
+      <tr>
+        <th>Temperature</th>
+        <th>Capacity</th>
+        <th>What it means</th>
+        <th class="bar-cell"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="temp">≤ 24°C</td><td class="cap ok">100%</td><td>Full capacity. No loss.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:100%"></div></div></td></tr>
+      <tr><td class="temp">26°C</td><td class="cap ok">95%</td><td>Marginal loss.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:95%"></div></div></td></tr>
+      <tr><td class="temp">28°C</td><td class="cap">88%</td><td>Slight fatigue. Work slows.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:88%"></div></div></td></tr>
+      <tr><td class="temp">30°C</td><td class="cap">80%</td><td>One fifth of capacity gone.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:80%"></div></div></td></tr>
+      <tr><td class="temp">32°C</td><td class="cap">70%</td><td>Marked heat stress.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:70%"></div></div></td></tr>
+      <tr><td class="temp">34°C</td><td class="cap low">50%</td><td>Half. Tipping point.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill low" style="width:50%"></div></div></td></tr>
+      <tr><td class="temp">36°C</td><td class="cap low">40%</td><td>Real danger. Heat stroke risk.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill low" style="width:40%"></div></div></td></tr>
+      <tr><td class="temp">38°C</td><td class="cap low">30%</td><td>Work severely compromised.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill low" style="width:30%"></div></div></td></tr>
+      <tr><td class="temp">40°C</td><td class="cap low">20%</td><td>Nearly impossible to work.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill low" style="width:20%"></div></div></td></tr>
+      <tr><td class="temp">≥ 42°C</td><td class="cap low">10%</td><td>Floor. Work has effectively stopped.</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill low" style="width:10%"></div></div></td></tr>
+    </tbody>
+  </table>
+
+  <hr class="divider">
+
+  <div class="insight">
+    <p>The hardest month is not July. It is October.</p>
+    <p>The harmattan — the dry Saharan wind — moderates temperatures in July. October has no such relief. Humid heat settles in, average temperatures reach 32.5°C, and compression climbs to <strong>37.8%</strong>. Nearly twice January.</p>
+    <p class="dim">This result contradicts intuition. Most people assume July is the worst month. The data says October. That is why we measured.</p>
+  </div>
+
+  <hr class="divider">
+  <p class="section-label">Three professions, one curve</p>
+
+  <div class="professions">
+    <div class="profession">
+      <p class="profession-label">Behavioural compression</p>
+      <p class="profession-name">Market vendors</p>
+      <p class="profession-desc">Marché Capitale, Marché 5ème. Standing all day. No AC. Heat sets the rhythm.</p>
+    </div>
+    <div class="profession">
+      <p class="profession-label">Physical compression</p>
+      <p class="profession-name">Masons and day labourers</p>
+      <p class="profession-desc">Construction, handling, public works. Sustained physical effort under direct sun. The curve applies literally.</p>
+    </div>
+    <div class="profession">
+      <p class="profession-label">Financial compression</p>
+      <p class="profession-name">Avenue Nasser shops</p>
+      <p class="profession-desc">Boutiques, workshops, small offices. Those who can afford AC stay open. The rest slow down or close.</p>
+    </div>
+  </div>
+
+  <div class="page-nav">
+    <a href="index.html">← Home</a>
+    <a href="compression.html" class="next">Compression →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="compression.html">Compression</a>
+    <a href="methodology.html">Method</a>
+    <a href="../curve.html">Français</a>
+    <a href="https://github.com/agattbechar/nkc-heat-tax" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p class="footer-author">
+    <a href="https://github.com/agattbechar" target="_blank" rel="noopener">Bechar Agatt</a>
+    &nbsp;·&nbsp; Nouakchott, Mauritania &nbsp;·&nbsp; 2026<br>
+    ILO (2019) Working on a Warmer Planet &nbsp;·&nbsp; ISO 7243:2017 &nbsp;·&nbsp; Open-Meteo CC BY 4.0
+  </p>
+</footer>
+</body>
+</html>

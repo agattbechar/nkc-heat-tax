@@ -1,0 +1,282 @@
+{
+  "marche_cinquieme": {
+    "title": "Marchés 5 ème",
+    "place_id": "ChIJn4aUh5hNlg4RSdtwaKa6yWk",
+    "data_id": "0xe964d988794869f:0x69c9baa66870db49",
+    "data_cid": "7622829068180839241",
+    "reviews_link": "https://serpapi.com/search.json?data_id=0xe964d988794869f%3A0x69c9baa66870db49&engine=google_maps_reviews&hl=en",
+    "photos_link": "https://serpapi.com/search.json?data_id=0xe964d988794869f%3A0x69c9baa66870db49&engine=google_maps_photos&hl=en",
+    "gps_coordinates": {
+      "latitude": 18.0733988,
+      "longitude": -15.9911421
+    },
+    "place_id_search": "https://serpapi.com/search.json?engine=google_maps&google_domain=google.com&hl=en&place_id=ChIJn4aUh5hNlg4RSdtwaKa6yWk",
+    "provider_id": "/g/11rb2_4t82",
+    "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweps1oWlQP7GzGVaIt9yqgk53Qd3LkkL4Kzk-PFA6gmgpEcF7UB3Z6aBFovzfcswAwKwEytAlOi3krjWpSrfetcRn2hZzX_yqReLFAFlWCVHvomXhGKBOW2iR1aWIMRdm9drfMfx=w86-h114-k-no",
+    "serpapi_thumbnail": "https://serpapi.com/images/url/SCphU3icBcHhjoIgAADgJyJnlFZbP_AW2rRV3k5af5pDhAKFhCJ9v3uIe5v7vr9f4ZyxmyBQAs641lyxl2UD1b1jvZtR3QXcWEAtsAHKKuSZsaEm6nyK0ymt6r1bj08ul_DcwELKYpFPEpwwinjHzY7i-CeB16hOsH5PLbUe-dzvRofU8Q7l8CDme2iZo2U_F9fpchufJSswwop8VdlbdxeR5smRzO9lWJP9oWy6dTO0h_az9asIiDBcAAl6_Q9O2UZA",
+    "rating_summary": [
+      {
+        "stars": 1,
+        "amount": 0
+      },
+      {
+        "stars": 2,
+        "amount": 1
+      },
+      {
+        "stars": 3,
+        "amount": 2
+      },
+      {
+        "stars": 4,
+        "amount": 4
+      },
+      {
+        "stars": 5,
+        "amount": 12
+      }
+    ],
+    "rating": 4.4,
+    "reviews": 19,
+    "unclaimed_listing": true,
+    "type": [
+      "Market"
+    ],
+    "type_ids": [
+      "market"
+    ],
+    "extensions": [
+      {
+        "payments": [
+          "NFC mobile payments"
+        ]
+      }
+    ],
+    "address": "C’est 5, Nouakchott, Mauritania",
+    "website": "http://fivemarkett.com/",
+    "phone": "+222 22 16 04 82",
+    "plus_code": "32F5+9G Nouakchott, Mauritania",
+    "images": [
+      {
+        "title": "All",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweps1oWlQP7GzGVaIt9yqgk53Qd3LkkL4Kzk-PFA6gmgpEcF7UB3Z6aBFovzfcswAwKwEytAlOi3krjWpSrfetcRn2hZzX_yqReLFAFlWCVHvomXhGKBOW2iR1aWIMRdm9drfMfx=w224-h298-k-no",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/yu23BHicBcHvjoIgAADwJyIX9M_b7gPewpq2ypa0vjSHCAUKCRenD9g79Db3-33e0nvrvqJISzQRxgjNfx3vmek87_yEmTYS1gHmgIvwpsSBWzc1VB8Py3RMy2rr4-Ep1Bwda5Qrlc-yUYEDwQvRCrtmZHlO0HVRJcS8xoa5gEMW1oPHen9Hqn9Qe-ob7lnRQXkdL7fhWfCcYKLpT7l5mfYi0yzZU3gvphXd7oq6jeu-2TV_3wHCGZAwXgEFOvMPlSlGeA"
+      },
+      {
+        "title": "Inside",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAwer_C5Jdauw1gKE46uoZFtupS-2F3PngnUh4p99VBK67IhVJttmtZNJ4dnCBtGoBLRKvW5sVhQq8ZMfkSMQaxZPExH54XypVTi5u2mSLLRVsh-4MV63YL4blv25Hbtou_qha4cftrQ=w397-h298-k-no",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/zy8nsnicBcFvE4EwHADgTzSd2iJ3XqhD-uMkht64JJtT27TfxDf0FXwbz_P7cgClJ5bVcGfApGRNbXTdVVJALWBQydZiSqNKI23NQjrr6-4ckOhamn7I4jl2jSwWYFSO7IWzEUzsOVaeR_3YHa04jQBaKNYRvorAh6X0k238OhBNefYcF-ntkadZ-S4283dI8PGj6O5OjN3mSbKlmiOcUtc5JfjSvGwSXkCa85OXuLpBl017xxshbntj9EBC_gGak0WQ"
+      },
+      {
+        "title": "Videos",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweql2v6qkANFu-TSxMtA28_m-p7qU6dfqDq5Vxr4L9amJ7nCy1KKBYTL3q9ZAH66xFRISm9bWlkWZnZIZLSlK_jcoXaEuAvzkOHnrXmPzVvlvdoWYH3zLK4JMJpiSzD4uPrFk5Zr=w224-h398-k-no",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/8SRRjHicBcHpEoFAAADgJ1qNLjLjxzqaVI4Rxf4xJMVe7VHSA3oHb-P7ft9K61pNDINU1qDkvCRFowqZc6YLpgc5p0ZZK5AroAwYpPBdCGK2rsBw4zfgkHRrDc3xhYJ6JI7u_SEWwkk7acfelYYjNv8Mo2h2PsSW8BAMXLfz96uEereM4AwxtEJxQqLLK-en67KBbY-3AZMnuuvTlrR3np0Dq48jO1yH9TPpF3azkz52kJy-TdMGleWNAQaM_wEpd0WJ"
+      },
+      {
+        "title": "Food",
+        "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweoAKD_MNbazbVm3nW57rMxoqG2Pfu6_tOXid2nCX1IvSNs42XjbiUeTZD9TR-CvpQFWH52-8D2U2KIZ1RhXrWv3VWtlT4p-n-aaw8FnGOFfbVCy35-lMEG6bXZyDQxf7idr9CWSGA=w397-h298-k-no",
+        "serpapi_thumbnail": "https://serpapi.com/images/url/7n54QnicBcFLDoIwFADAEz2JrQiYuCAgaAx-kTZsDMXyUWyRVlBP6BW8jTO_b6V1q2aG0VR4VEpZNvypeJdLobnQo1zejbJVkCtQhrtM3IFLd-2fow3LPiy5Y0FMq4te8hGiXfGcnvWW1hckPDpe9ceNmiB6ZfWJx6nvxAfw-nYfkKWJwPbRCa1X6fhQ0Y70OCG6iSctCMiywQ5EuA0KlnhvbEITLcIpo-nb378Kq750jkeOoTsfsGNBhRwbbiDkH1peRAY"
+      }
+    ],
+    "user_reviews": {
+      "most_relevant": [
+        {
+          "username": "MP N",
+          "rating": 5,
+          "contributor_id": "109758221414981238595",
+          "user_review_count": 40,
+          "user_photo_count": 23,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLix4vNrEaJHO31IT6Vk3ts1g1n9X-tqaysmD5Q5MDq71yAQA=s120-c-rp-mo-ba3-br100",
+          "description": "Un marché comme je les aime ,des vendeurs et vendeuses sympathiques ,beaucoup de choix à des prix raisonnables",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUN2ek8yZkV3EAE!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgICvzO2fEw%7CCgwI35fXugYQkLvZmQE%7C?hl=en-US",
+          "images": [
+            {
+              "thumbnail": "https://lh3.googleusercontent.com/geougc-cs/ABOP9ptihXI0O9a8oUu_MC17OaYwhdLpXfdk_PhBtqSEUb4w8cLlVY6ggYINa2Ky3Xxb0hwyI-8Q-daEhhd_mh9rZDn-0eD7rAo2jCQuhvQCS3C2wLr3kzEgDTLapyR2XwlXvuCnTiDfBw"
+            },
+            {
+              "thumbnail": "https://lh3.googleusercontent.com/geougc-cs/ABOP9pvhfEpJ7HfDykeyAbnlqYM1Z4BhcnAbgLn5TSnYnG1v1k1bIf3SPGM49gVMAmyGghwZu0X7uY-hb4Y8at7_RKmKzstMtY-epZK-V2c33EQwLCuWvo2NMdTmRJ79HtuyCkqlzUMn"
+            },
+            {
+              "thumbnail": "https://lh3.googleusercontent.com/geougc-cs/ABOP9pv404vCXXbnkZpu4aSFh_JQ4ik4quGuXcSoAUyY0yMBEE-GEpCiLxuXk7qBuFrPqswJj5Yu00W2O8EZLb8xApo6NdmF3XRdCbd5t8ygPypJ1tQ8rr12asNoLWx0HtOl5Prb4d4X"
+            }
+          ],
+          "date": "a year ago",
+          "date_iso8601": "2024-12-08T16:39:59+00:00"
+        },
+        {
+          "username": "Masss Sii",
+          "rating": 5,
+          "contributor_id": "117470433200405629613",
+          "user_review_count": 4,
+          "user_photo_count": 2,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLUKfsqxH7bw-9KXN1K59SCtVTgsHwjqd5g5j5rsaubiFjePLk=s120-c-rp-mo-br100",
+          "description": "Le marché à beaucoup d’amélioration\nMerci",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sCi9DQUlRQUNvZENodHljRjlvT2pkdlZHMWxPWGhtWDFaM2FYTmhNVXh0YW1OUFdYYxAB!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CAIQACodChtycF9oOjdvVG1lOXhmX1Z3aXNhMUxtamNPWXc%7C0cvTXvNDCgJ%7C?hl=en-US",
+          "date": "Edited 4 months ago",
+          "date_iso8601": "2025-10-14T06:07:55+00:00"
+        },
+        {
+          "username": "Audrey Ehouman",
+          "rating": 4,
+          "contributor_id": "115905049403882293809",
+          "user_review_count": 35,
+          "user_photo_count": 59,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjV0svKUXxQzsAj0GdakUYzF9KyRUW-3oXrAY-f3j0cbsgtijuA3Cg=s120-c-rp-mo-ba4-br100",
+          "description": "On y trouve des choses avec des prix raisonnables.",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNvM1BXbHhRRRAB!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgMCo3PWlxQE%7CCgwIgIP5vwYQ-LC7nwM%7C?hl=en-US",
+          "date": "10 months ago",
+          "date_iso8601": "2025-04-15T11:22:40+00:00"
+        },
+        {
+          "username": "Soya Woo",
+          "rating": 5,
+          "contributor_id": "108389904178550969164",
+          "user_review_count": 120,
+          "user_photo_count": 2483,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjVgfvoNdLJ_A49MnVuwPwNbFeZTwyikqh3qSl85j_MSZ1SWv84=s120-c-rp-mo-br100",
+          "description": "Très bon marché ont trouve tout ceux que l'on cherche.",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNhMWNudzFnRRAB!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgICa1cnw1gE%7CCgwInbawiAYQqN7d_wI%7C?hl=en-US",
+          "date": "4 years ago",
+          "date_iso8601": "2021-08-05T17:08:45+00:00"
+        },
+        {
+          "username": "محمد أگوف",
+          "rating": 3,
+          "contributor_id": "108598061435698971247",
+          "user_review_count": 14,
+          "user_photo_count": 2,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjUnUkOsTVnj8kGbchK9J2j-dbd5tThPeuMyacouC_AdynZkwUA=s120-c-rp-mo-ba3-br100",
+          "description": "سوق جيد",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnTURRay1lS1RREAE!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgMDQk-eKTQ%7CCgwI48jNvgYQkOmLoAE%7C?hl=en-US",
+          "date": "11 months ago",
+          "date_iso8601": "2025-03-13T23:04:03+00:00"
+        },
+        {
+          "username": "mamedi camara",
+          "rating": 5,
+          "contributor_id": "101685665313871707164",
+          "user_review_count": 1,
+          "user_photo_count": 2,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocLNOzSs0XAhVKdsfy8xlLYCWHWJ9_eK0b--RUjw6Fqqac9dbQ=s120-c-rp-mo-br100",
+          "description": "Mohamed Bakery kamara",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnTUNRM01PeHJBRRAB!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgMCQ3MOxrAE%7CCgwIjdGTvgYQ8NjRhAI%7C?hl=en-US",
+          "date": "a year ago",
+          "date_iso8601": "2025-03-02T23:23:57+00:00"
+        },
+        {
+          "username": "tiamba tambadou",
+          "rating": 5,
+          "contributor_id": "104637591214604138823",
+          "user_review_count": 3,
+          "user_photo_count": 0,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a/ACg8ocKwIfCX5jmT2uv2NkqtIJmZMz-nNxDtjTnbKJQvac-bhr4f=s120-c-rp-mo-br100",
+          "description": "Bonne marche",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChZDSUhNMG9nS0VJQ0FnSUNob3NpSkNREAE!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgIChosiJCQ%7CCgwI3KGPnwYQgKj25wI%7C?hl=en-US",
+          "date": "3 years ago",
+          "date_iso8601": "2023-02-08T16:42:04+00:00"
+        },
+        {
+          "username": "Hu Gy",
+          "rating": 2,
+          "contributor_id": "104006469752907502470",
+          "user_review_count": 0,
+          "user_photo_count": 2,
+          "user_thumbnail": "https://lh3.googleusercontent.com/a-/ALV-UjXQNgPiGJrOaTR3GOBBwKSQUQA6SIpjzdsMIdEq_pJviMYdRYw=s120-c-rp-mo-br100",
+          "link": "https://www.google.com/maps/reviews/data=!4m8!14m7!1m6!2m5!1sChdDSUhNMG9nS0VJQ0FnSUNMdFAtYmlnRRAB!2m1!1s0x0:0x69c9baa66870db49!3m1!1s2@1:CIHM0ogKEICAgICLtP-bigE%7CCgwIoo24swYQqPCW6wI%7C?hl=en-US",
+          "images": [
+            {
+              "thumbnail": "https://lh3.googleusercontent.com/geougc-cs/ABOP9psz8YDNeIAy49WA4ni_9Y3VMZ6Cux1hmfB7TH7ZgxuOq2Q1CVoF00REBAhOwrAwot7gR_W1XAYEyq4hjsFYQeA_S8sjvHOZA_w3xKd_pqpbRqLWwPdcrcv1GY6L8tZv07ChzHN-"
+            }
+          ],
+          "date": "a year ago",
+          "date_iso8601": "2024-06-15T21:24:50+00:00"
+        }
+      ]
+    },
+    "people_also_search_for": [
+      {
+        "search_term": "People also search for",
+        "local_results": [
+          {
+            "position": 1,
+            "title": "Marche Capitale",
+            "data_id": "0x0:0x17cc98ccffff81fb",
+            "data_cid": "1714913564357001723",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x17cc98ccffff81fb&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x17cc98ccffff81fb&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 18.0861892,
+              "longitude": -15.9797497
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x17cc98ccffff81fb%218m2%213d18.0861892%214d-15.9797497&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 3.9,
+            "reviews": 270,
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqqxpOHQiCtRjQCBJnJ3f6eHzJ4z5eSVZa_HCf0Hzrhv4W8CK0T-uLx2ELKKTdWhxdvRKUWyyrHyCC8XJsvZiwDN_eDCVIEBNH-OgANpLyS349Z795--pDWusyyrPC-9MvfiAGQEziNK58=w156-h156-n-k-no",
+            "type": [
+              "Shopping mall"
+            ]
+          },
+          {
+            "position": 2,
+            "title": "Market Cinquième",
+            "data_id": "0x0:0x6b5bae5b2ad03b35",
+            "data_cid": "7735968491522505525",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x6b5bae5b2ad03b35&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x6b5bae5b2ad03b35&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 18.0773785,
+              "longitude": -15.988877299999997
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x6b5bae5b2ad03b35%218m2%213d18.0773785%214d-15.988877299999997&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 3.1,
+            "reviews": 8,
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweqq7wS41UxH3Np9oSnI_RfvHJvdNaii5SWzZwdeMkT2qqi5gBZcRhBnuT4pEhFScu48b3Mu_Mcoa3GqrIZ2oftI94X0e8N3umItkxA9rFRsklDRFTRa2lKuKXtQZazbaxVfwl9b=w156-h156-n-k-no",
+            "type": [
+              "College"
+            ]
+          },
+          {
+            "position": 3,
+            "title": "Marché Guinar",
+            "data_id": "0x0:0xf700f307cae22861",
+            "data_cid": "17798492942162339937",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0xf700f307cae22861&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0xf700f307cae22861&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 18.078531299999998,
+              "longitude": -15.983230899999999
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0xf700f307cae22861%218m2%213d18.078531299999998%214d-15.983230899999999&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 4.4,
+            "reviews": 8,
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAwepgjrAX3rlRzE5Kz1qc-9TzmiJmGGbP4nzxEQCK47nnKdWr4-Z3MNjVd-Z5DiwAomNj0Yo7qON5aOyyDPQqg-LB37AcjUOtM61YS2PmgYtbQxAcIYbHp9Kvx-Y4dWN59nUYbhn7BA=w156-h156-n-k-no",
+            "type": [
+              "Market"
+            ]
+          },
+          {
+            "position": 4,
+            "title": "Marché de La Viande",
+            "data_id": "0x0:0x990366a0d9a5be1",
+            "data_cid": "689110572110339041",
+            "reviews_link": "https://serpapi.com/search.json?data_id=0x0%3A0x990366a0d9a5be1&engine=google_maps_reviews&hl=en",
+            "photos_link": "https://serpapi.com/search.json?data_id=0x0%3A0x990366a0d9a5be1&engine=google_maps_photos&hl=en",
+            "gps_coordinates": {
+              "latitude": 18.083473700000003,
+              "longitude": -15.980499400000001
+            },
+            "place_id_search": "https://serpapi.com/search.json?data=%214m5%213m4%211s0x0%3A0x990366a0d9a5be1%218m2%213d18.083473700000003%214d-15.980499400000001&engine=google_maps&google_domain=google.com&hl=en&type=place",
+            "rating": 3.5,
+            "reviews": 17,
+            "thumbnail": "https://lh3.googleusercontent.com/gps-cs-s/AHVAweq3Zcu9RigvapZMIAqdFBhTuU18mir1oVZiSzqC6Ip8xCWJw4cyYb3oJBppdMUIIYrX0V8WJi00Dccce50gPCQK-DjtOD9L82RbfqrKCJjG8O_lTjghucziX34U-aj356DmoJyRZwBHr9V4=w156-h156-n-k-no",
+            "type": [
+              "Market"
+            ]
+          }
+        ]
+      }
+    ],
+    "web_results_link": "https://www.google.com/search?q=local+guide+program&ibp=gwp;0,26,OiwKKiImTWFyY2jDqXMgNSDDqG1lIE5vdWFrY2hvdHQsIE1hdXJpdGFuaWEoAg&pcl=lp",
+    "serpapi_web_results_link": "https://serpapi.com/search.json?device=desktop&engine=google&google_domain=google.com&ibp=gwp%3B0%2C26%2COiwKKiImTWFyY2jDqXMgNSDDqG1lIE5vdWFrY2hvdHQsIE1hdXJpdGFuaWEoAg&q=local+guide+program"
+  }
+}

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0A0D14">
+  <title>Compression — La Taxe Canicule</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:          #0A0D14;
+      --bg-raised:   #0F1420;
+      --bg-card:     #131824;
+      --border:      #1E2535;
+      --text:        #D8E0F0;
+      --text-mid:    #7A8AAA;
+      --text-dim:    #3A4A6A;
+      --amber:       #D4893A;
+      --amber-dim:   rgba(212, 137, 58, 0.06);
+      --amber-muted: #7A4A1A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 300;
+      line-height: 1.75;
+      font-size: 18px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(10, 13, 20, 0.9);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 0 1.5rem;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      height: 52px;
+    }
+
+    .nav-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text); text-decoration: none;
+    }
+
+    .nav-title span { color: var(--amber); }
+    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); opacity: 0.8; }
+
+    .nav-lang {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim); text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 4px 10px; transition: all 0.2s;
+    }
+
+    .nav-lang:hover { color: var(--amber); border-color: var(--amber-muted); }
+
+    /* ── Hero ───────────────────────────────────────────────── */
+    .hero {
+      min-height: 70vh;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 7rem 1.5rem 4rem;
+      max-width: 900px; margin: 0 auto;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%; left: -5%;
+      width: 50vw; height: 50vw;
+      max-width: 400px; max-height: 400px;
+      background: radial-gradient(ellipse, rgba(212, 137, 58, 0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero > * { position: relative; }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber); opacity: 0.7;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--text); margin-bottom: 1.2rem;
+      animation: fadeUp 0.6s 0.08s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .hero-title em { color: var(--amber); font-style: normal; }
+
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-style: italic; color: var(--text-mid);
+      max-width: 560px; line-height: 1.7;
+      animation: fadeUp 0.6s 0.16s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    /* ── Body ───────────────────────────────────────────────── */
+    .body { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 6rem; }
+
+    /* ── Chart ──────────────────────────────────────────────── */
+    .chart-wrap {
+      margin: 3rem 0;
+      border: 1px solid var(--border);
+      overflow: hidden; background: var(--bg-card);
+      position: relative;
+    }
+
+    .chart-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      opacity: 0.3; z-index: 1;
+    }
+
+    .chart-wrap img {
+      width: 100%; display: block;
+      filter: brightness(0.88) saturate(0.9);
+      mix-blend-mode: lighten;
+    }
+
+    .chart-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 0.05em;
+      color: var(--text-dim);
+      padding: 0.7rem 1rem;
+      border-top: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    /* ── Key numbers ────────────────────────────────────────── */
+    .numbers {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin: 3rem 0;
+    }
+
+    .number-cell { background: var(--bg-raised); padding: 1.4rem; }
+
+    .number-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 0.5rem;
+    }
+
+    .number-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.9rem);
+      font-weight: 700; color: var(--amber);
+      line-height: 1.1; margin-bottom: 0.3rem;
+    }
+
+    .number-sub {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px; color: var(--text-dim); line-height: 1.5;
+    }
+
+    /* ── Prose ──────────────────────────────────────────────── */
+    .prose { max-width: 640px; margin: 3rem 0; }
+
+    .prose p {
+      color: var(--text-mid);
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      line-height: 1.85; margin-bottom: 1.2rem;
+    }
+
+    .prose p strong { color: var(--text); font-weight: 600; }
+    .prose p:last-child { margin-bottom: 0; }
+
+    /* ── Monthly table ──────────────────────────────────────── */
+    .month-table {
+      width: 100%; border-collapse: collapse;
+      margin: 2.5rem 0;
+    }
+
+    .month-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim); text-align: left;
+      padding: 0.6rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .month-table td {
+      font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+      color: var(--text-mid);
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .month-table tr:last-child td { border-bottom: none; }
+
+    .month-table tr.highlight td { background: var(--amber-dim); }
+    .month-table tr.highlight td.month-name { color: var(--amber); font-weight: 600; }
+
+    .month-table td.month-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--text);
+    }
+
+    .month-table td.hours {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--amber);
+    }
+
+    .month-table td.comp {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem; color: var(--text-mid);
+    }
+
+    .month-table td.cost {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.82rem; color: var(--text-mid);
+    }
+
+    /* ── Wage scenarios ─────────────────────────────────────── */
+    .scenarios {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .scenario { background: var(--bg-raised); padding: 1.4rem; }
+    .scenario.central { background: var(--bg-card); border-top: 2px solid var(--amber); }
+
+    .scenario-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 0.4rem;
+    }
+
+    .scenario.central .scenario-label { color: var(--amber); }
+
+    .scenario-wage {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem; color: var(--text-mid);
+      margin-bottom: 0.8rem;
+    }
+
+    .scenario-loss {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 700; color: var(--amber);
+      line-height: 1.1; margin-bottom: 0.3rem;
+    }
+
+    .scenario-city {
+      font-family: 'DM Mono', monospace;
+      font-size: 8px; color: var(--text-dim); line-height: 1.6;
+    }
+
+    /* ── Insight ────────────────────────────────────────────── */
+    .insight {
+      background: var(--amber-dim);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--amber);
+      padding: 1.4rem 1.6rem;
+      margin: 2.5rem 0; max-width: 640px;
+    }
+
+    .insight p {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--text); margin: 0 0 0.5rem; line-height: 1.7;
+    }
+
+    .insight p:last-child { margin-bottom: 0; }
+    .insight p.dim { color: var(--text-mid); font-style: italic; font-size: 0.9rem; }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+    /* ── Page nav ───────────────────────────────────────────── */
+    .page-nav {
+      display: flex; justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      padding: 2rem 0; margin-top: 2rem;
+      gap: 1rem; flex-wrap: wrap;
+    }
+
+    .page-nav a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .page-nav a:hover { color: var(--amber); }
+    .page-nav a.next { color: var(--amber); }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 1.5rem;
+      max-width: 900px; margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-mid); text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--amber); }
+
+    .footer-author {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px; color: var(--text-dim); line-height: 2;
+    }
+
+    .footer-author a {
+      color: var(--text-mid); text-decoration: none;
+      border-bottom: 1px solid var(--text-dim);
+      padding-bottom: 1px; transition: color 0.2s;
+    }
+
+    .footer-author a:hover { color: var(--amber); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .numbers { grid-template-columns: 1fr 1fr; }
+      .scenarios { grid-template-columns: 1fr; }
+      .month-table th:nth-child(4),
+      .month-table td:nth-child(4) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-title" href="index.html">La Taxe <span>Canicule</span></a>
+  <ul class="nav-links">
+    <li><a href="curve.html">La Courbe</a></li>
+    <li><a href="compression.html" class="active">Compression</a></li>
+    <li><a href="premium.html">Prime AC</a></li>
+    <li><a href="shadow.html">Production</a></li>
+    <li><a href="methodology.html">Méthode</a></li>
+    <li><a href="data.html">Données</a></li>
+  </ul>
+  <a class="nav-lang" href="en/compression.html">EN</a>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">02 — Compression</p>
+  <h1 class="hero-title"><em>730 heures</em> par an.<br>Par travailleur.</h1>
+  <p class="hero-sub">
+    La courbe OIT/ISO appliquée aux températures de Nouakchott donne un résultat précis.
+    Pas une fourchette. Un chiffre. Et ce chiffre a un prix.
+  </p>
+</section>
+
+<div class="body">
+
+  <div class="chart-wrap">
+    <img src="assets/charts/compression.png" alt="Heures perdues par mois">
+    <p class="chart-caption">
+      Heures de travail perdues à la chaleur par mois — moyenne 2019–2025.
+      Travailleur extérieur, intensité modérée. / Working hours lost to heat by month — 2019–2025 average.
+    </p>
+  </div>
+
+  <!-- Key numbers -->
+  <div class="numbers">
+    <div class="number-cell">
+      <p class="number-label">Heures perdues / an</p>
+      <p class="number-value">730h</p>
+      <p class="number-sub">par travailleur extérieur</p>
+    </div>
+    <div class="number-cell">
+      <p class="number-label">Coût / travailleur</p>
+      <p class="number-value">14 742 MRU</p>
+      <p class="number-sub">scénario central (1,4× SMIG)</p>
+    </div>
+    <div class="number-cell">
+      <p class="number-label">% du SMIG annuel</p>
+      <p class="number-value">41%</p>
+      <p class="number-sub">du salaire minimum annuel perdu</p>
+    </div>
+    <div class="number-cell">
+      <p class="number-label">Perte ville (central)</p>
+      <p class="number-value">1 769M MRU</p>
+      <p class="number-sub">≈ $49M USD / an</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      Appliquée heure par heure aux données de température de Nouakchott,
+      la courbe OIT/ISO produit un résultat annuel moyen de
+      <strong>730 heures de capacité de travail perdues</strong> par travailleur extérieur.
+      C'est l'équivalent de 91 journées de travail — presque quatre mois.
+    </p>
+    <p>
+      Pour convertir ces heures en argent, nous utilisons le
+      <strong>SMIG mauritanien</strong> comme borne inférieure — 3 000 MRU/mois
+      (ILO ILOSTAT, 2022). C'est délibérément conservateur : les travailleurs
+      informels à Nouakchott gagnent souvent plus. La perte réelle est
+      probablement plus élevée.
+    </p>
+    <p>
+      Au scénario central (1,4× SMIG), un travailleur perd
+      <strong>14 742 MRU par an</strong> — soit <strong>41% de son salaire
+      minimum annuel</strong>, dissous dans la chaleur avant même d'avoir
+      pu le gagner.
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Monthly breakdown -->
+  <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);opacity:0.7;margin-bottom:1.2rem;">
+    Détail mensuel — moyenne 2019–2025
+  </p>
+
+  <table class="month-table">
+    <thead>
+      <tr>
+        <th>Mois</th>
+        <th>Heures perdues</th>
+        <th>Compression</th>
+        <th>Coût / travailleur (central)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="month-name">Janvier</td>
+        <td class="hours">27,8h</td>
+        <td class="comp">9,0%</td>
+        <td class="cost">560 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Février</td>
+        <td class="hours">38,5h</td>
+        <td class="comp">13,5%</td>
+        <td class="cost">777 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Mars</td>
+        <td class="hours">48,0h</td>
+        <td class="comp">15,5%</td>
+        <td class="cost">969 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Avril</td>
+        <td class="hours">58,5h</td>
+        <td class="comp">19,5%</td>
+        <td class="cost">1 182 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Mai</td>
+        <td class="hours">66,2h</td>
+        <td class="comp">21,3%</td>
+        <td class="cost">1 336 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Juin</td>
+        <td class="hours">79,6h</td>
+        <td class="comp">26,5%</td>
+        <td class="cost">1 608 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Juillet</td>
+        <td class="hours">38,4h</td>
+        <td class="comp">12,4%</td>
+        <td class="cost">774 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Août</td>
+        <td class="hours">58,0h</td>
+        <td class="comp">18,7%</td>
+        <td class="cost">1 171 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Septembre</td>
+        <td class="hours">90,4h</td>
+        <td class="comp">30,1%</td>
+        <td class="cost">1 825 MRU</td>
+      </tr>
+      <tr class="highlight">
+        <td class="month-name">Octobre</td>
+        <td class="hours">117,2h</td>
+        <td class="comp">37,8%</td>
+        <td class="cost">2 367 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Novembre</td>
+        <td class="hours">77,0h</td>
+        <td class="comp">25,7%</td>
+        <td class="cost">1 554 MRU</td>
+      </tr>
+      <tr>
+        <td class="month-name">Décembre</td>
+        <td class="hours">30,6h</td>
+        <td class="comp">9,9%</td>
+        <td class="cost">618 MRU</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight">
+    <p>Octobre : 117 heures perdues. Presque trois semaines de travail.</p>
+    <p>
+      Juillet, contre toute attente, est l'un des mois les plus cléments —
+      38,4 heures perdues seulement. Le harmattan réduit l'humidité et
+      modère la chaleur effective. Ce résultat n'est pas intuitif.
+      C'est pour ça qu'on a mesuré.
+    </p>
+    <p class="dim">
+      Toutes les valeurs sont des moyennes sur la période 2019–2025.
+      La stabilité d'une année à l'autre renforce la crédibilité du chiffre.
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Wage scenarios -->
+  <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--amber);opacity:0.7;margin-bottom:1.2rem;">
+    Trois scénarios salariaux
+  </p>
+
+  <div class="scenarios">
+    <div class="scenario">
+      <p class="scenario-label">Conservateur — 1,0× SMIG</p>
+      <p class="scenario-wage">14,42 MRU/h</p>
+      <p class="scenario-loss">10 524 MRU</p>
+      <p class="scenario-city">par travailleur / an<br>Ville : 1 263M MRU ≈ $35M</p>
+    </div>
+    <div class="scenario central">
+      <p class="scenario-label">Central — 1,4× SMIG</p>
+      <p class="scenario-wage">20,19 MRU/h</p>
+      <p class="scenario-loss">14 742 MRU</p>
+      <p class="scenario-city">par travailleur / an<br>Ville : 1 769M MRU ≈ $49M</p>
+    </div>
+    <div class="scenario">
+      <p class="scenario-label">Haut — 1,8× SMIG</p>
+      <p class="scenario-wage">25,96 MRU/h</p>
+      <p class="scenario-loss">18 951 MRU</p>
+      <p class="scenario-city">par travailleur / an<br>Ville : 2 274M MRU ≈ $63M</p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      Les trois scénarios utilisent le même nombre d'heures perdues (730h).
+      Seul le salaire horaire varie. Le scénario conservateur ancre au SMIG légal.
+      Le scénario central applique un multiplicateur de 1,4 — cohérent avec
+      les études ILO et Banque Mondiale sur les salaires informels en Afrique
+      de l'Ouest urbaine. Le scénario haut représente les artisans qualifiés
+      et les petits entrepreneurs.
+    </p>
+    <p>
+      <strong>120 000 travailleurs exposés</strong> — notre estimation centrale
+      pour Nouakchott, basée sur les données INS du secteur informel (91,1%
+      du secteur privé non-agricole) et la part du travail extérieur à intensité
+      modérée (~40%).
+    </p>
+  </div>
+
+  <div class="page-nav">
+    <a href="curve.html">← La Courbe</a>
+    <a href="premium.html" class="next">Prime AC →</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="index.html">Accueil</a>
+    <a href="curve.html">La Courbe</a>
+    <a href="premium.html">Prime AC</a>
+    <a href="methodology.html">Méthode</a>
+    <a href="en/compression.html">English</a>
+    <a href="https://github.com/agattbechar/nkc-heat-tax" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <p class="footer-author">
+    <a href="https://github.com/agattbechar" target="_blank" rel="noopener">Bechar Agatt</a>
+    &nbsp;·&nbsp; Nouakchott, Mauritanie &nbsp;·&nbsp; 2026<br>
+    OIT (2019) &nbsp;·&nbsp; ISO 7243:2017 &nbsp;·&nbsp; Open-Meteo CC BY 4.0
+    &nbsp;·&nbsp; ILO ILOSTAT
+  </p>
+</footer>
+
+</body>
+</html>
