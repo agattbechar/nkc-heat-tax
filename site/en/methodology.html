@@ -3,702 +3,206 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0A0D14">
   <title>Methodology — The Heat Tax</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg:          #0A0D14;
-      --bg-raised:   #0F1420;
-      --bg-card:     #131824;
-      --border:      #1E2535;
-      --text:        #D8E0F0;
-      --text-mid:    #7A8AAA;
-      --text-dim:    #3A4A6A;
-      --amber:       #D4893A;
-      --amber-dim:   rgba(212, 137, 58, 0.06);
-      --amber-muted: #7A4A1A;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Cormorant Garamond', Georgia, serif;
-      font-weight: 300;
-      line-height: 1.75;
-      font-size: 18px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(10, 13, 20, 0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-      padding: 0 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 52px;
-    }
-
-    .nav-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 15px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-title span { color: var(--amber); }
-
-    .nav-links {
-      display: flex; gap: 1.8rem; list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--amber); }
-    .nav-links a.active { color: var(--amber); opacity: 0.8; }
-
-    .nav-lang {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 4px 10px;
-      transition: all 0.2s;
-    }
-
-    .nav-lang:hover { color: var(--amber); border-color: var(--amber-muted); }
-
-    .page-header {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 8rem 1.5rem 3.5rem;
-      border-bottom: 1px solid var(--border);
-      animation: fadeUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-    }
-
-    .page-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--amber);
-      opacity: 0.7;
-      margin-bottom: 1rem;
-    }
-
-    .page-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      font-weight: 700;
-      line-height: 1.1;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-    }
-
-    .page-intro {
-      color: var(--text-mid);
-      font-size: clamp(0.95rem, 2vw, 1.05rem);
-      max-width: 620px;
-      line-height: 1.8;
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1.5rem 6rem;
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 0 4rem;
-      align-items: start;
-    }
-
-    .toc {
-      position: sticky;
-      top: 72px;
-      padding-top: 3rem;
-    }
-
-    .toc-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-dim);
-      margin-bottom: 1.2rem;
-    }
-
-    .toc ul { list-style: none; }
-    .toc li { margin-bottom: 0.7rem; }
-
-    .toc a {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.04em;
-      color: var(--text-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-      line-height: 1.5;
-      display: block;
-    }
-
-    .toc a:hover { color: var(--amber); }
-
-    .main { padding-top: 3rem; }
-
-    .method-section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .method-section:last-child { border-bottom: none; }
-
-    .method-number {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--amber);
-      opacity: 0.7;
-      margin-bottom: 0.4rem;
-    }
-
-    .method-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.3rem, 3vw, 1.7rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 1.2rem;
-      line-height: 1.2;
-    }
-
-    .method-section p {
-      color: var(--text-mid);
-      font-size: clamp(0.92rem, 2vw, 1rem);
-      margin-bottom: 1rem;
-      max-width: 580px;
-      line-height: 1.8;
-    }
-
-    .method-section p strong { color: var(--text); font-weight: 600; }
-
-    .assumption {
-      background: var(--bg-raised);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--amber-muted);
-      padding: 1.2rem 1.4rem;
-      margin: 1.5rem 0;
-      max-width: 580px;
-    }
-
-    .assumption-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--amber);
-      opacity: 0.7;
-      margin-bottom: 0.6rem;
-    }
-
-    .assumption p {
-      color: var(--text-mid) !important;
-      margin-bottom: 0.4rem !important;
-      font-size: 0.92rem !important;
-      max-width: none !important;
-    }
-
-    .assumption p:last-child { margin-bottom: 0 !important; }
-    .assumption p strong { color: var(--text) !important; }
-
-    .formula {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 1.2rem 1.5rem;
-      margin: 1.5rem 0;
-      font-family: 'DM Mono', monospace;
-      font-size: clamp(0.72rem, 1.5vw, 0.82rem);
-      color: var(--text);
-      line-height: 1.9;
-      overflow-x: auto;
-      max-width: 580px;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .formula .comment { color: var(--text-dim); }
-    .formula .val { color: var(--amber); }
-
-    .citation {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 0.88rem;
-      color: var(--text-dim);
-      font-style: italic;
-      padding-left: 1rem;
-      border-left: 1px solid var(--border);
-      margin: 1.2rem 0;
-      line-height: 1.7;
-      max-width: 540px;
-    }
-
-    .limitations {
-      background: var(--amber-dim);
-      border: 1px solid var(--border);
-      border-left: 2px solid var(--amber);
-      padding: 1.5rem 1.8rem;
-      margin: 1.5rem 0;
-      max-width: 580px;
-    }
-
-    .limitations-title {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--amber);
-      margin-bottom: 1rem;
-    }
-
-    .limitations ul { list-style: none; }
-
-    .limitations li {
-      color: var(--text-mid);
-      font-size: 0.92rem;
-      padding: 0.4rem 0 0.4rem 1.2rem;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      line-height: 1.6;
-    }
-
-    .limitations li:last-child { border-bottom: none; }
-
-    .limitations li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--amber-muted);
-    }
-
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 3rem 1.5rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .footer-links {
-      display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;
-    }
-
-    .footer-links a {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-mid);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--amber); }
-
-    .footer-author {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.04em;
-      color: var(--text-dim);
-      line-height: 2;
-    }
-
-    .footer-author a {
-      color: var(--text-mid);
-      text-decoration: none;
-      border-bottom: 1px solid var(--text-dim);
-      padding-bottom: 1px;
-      transition: color 0.2s;
-    }
-
-    .footer-author a:hover { color: var(--amber); }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @media (max-width: 700px) {
-      .content { grid-template-columns: 1fr; }
-      .toc { display: none; }
-      .nav-links { display: none; }
-      .formula { font-size: 0.7rem; }
-    }
-  
-    .nav-burger {
-      display: none; flex-direction: column; justify-content: center;
-      gap: 5px; width: 32px; height: 32px;
-      background: none; border: none; cursor: pointer; padding: 4px;
-      z-index: 201; flex-shrink: 0;
-    }
-    .nav-burger span {
-      display: block; width: 100%; height: 1px;
-      background: var(--text-mid);
-      transition: all .25s cubic-bezier(.16,1,.3,1);
-      transform-origin: center;
-    }
-    .nav-burger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); background: var(--amber); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); background: var(--amber); }
-    .nav-drawer {
-      display: none; position: fixed;
-      top: 52px; left: 0; right: 0;
-      background: rgba(10,13,20,0.98);
-      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-      z-index: 199; padding: 1.5rem;
-      opacity: 0; transform: translateY(-8px);
-      transition: all .25s cubic-bezier(.16,1,.3,1);
-      pointer-events: none;
-    }
-    .nav-drawer.open { opacity: 1; transform: translateY(0); pointer-events: all; }
-    .nav-drawer ul { list-style: none; margin-bottom: 1.2rem; }
-    .nav-drawer ul li { border-bottom: 1px solid var(--border); }
-    .nav-drawer ul li:last-child { border-bottom: none; }
-    .nav-drawer ul a {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-mid); text-decoration: none;
-      display: block; padding: 1rem 0; transition: color .2s;
-    }
-    .nav-drawer ul a:hover, .nav-drawer ul a.active { color: var(--amber); }
-    .nav-drawer-lang {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--text-dim); text-decoration: none;
-      border: 1px solid var(--border); padding: 6px 14px;
-      display: inline-block; transition: all .2s;
-    }
-    .nav-drawer-lang:hover { color: var(--amber); border-color: var(--amber-muted); }
-    @media (max-width: 640px) {
-      .nav-burger { display: flex !important; }
-      .nav-drawer { display: block !important; }
-      .nav-lang   { display: none !important; }
-      .nav-links  { display: none !important; }
-    }
-
-  </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
-<nav>
-  <a class="nav-title" href="index.html">The <span>Heat Tax</span></a>
-  <ul class="nav-links">
-    <li><a href="curve.html">The Curve</a></li>
-    <li><a href="compression.html">Compression</a></li>
-    <li><a href="premium.html">AC Premium</a></li>
-    <li><a href="shadow.html">Output</a></li>
-    <li><a href="methodology.html" class="active">Method</a></li>
-    <li><a href="data.html">Data</a></li>
-  </ul>
-  <a class="nav-lang" href="../methodology.html">FR</a>
-<button class="nav-burger" id="nav-burger" aria-label="Menu"><span></span><span></span><span></span></button>
-</nav>
-<div class="nav-drawer" id="nav-drawer">
-<ul>
-  <li><a href="curve.html">The Curve</a></li>
-  <li><a href="compression.html">Compression</a></li>
-  <li><a href="premium.html">AC Premium</a></li>
-  <li><a href="shadow.html">Output</a></li>
-  <li><a href="methodology.html" class="active">Method</a></li>
-  <li><a href="data.html">Data</a></li>
-</ul>
-<a class="nav-drawer-lang" href="../methodology.html">FR &rarr;</a>
-</div>
-
-
-<div class="page-header">
-  <p class="page-eyebrow">Methodology</p>
-  <h1 class="page-title">How we measured the heat tax</h1>
-  <p class="page-intro">
-    Every assumption is declared. Every source is cited. Every limitation
-    is named before you find it. This analysis is descriptive — we measure,
-    we do not assert causation.
-  </p>
-</div>
-
-<div class="content">
-  <aside class="toc">
-    <p class="toc-title">On this page</p>
-    <ul>
-      <li><a href="#principle">Principle</a></li>
-      <li><a href="#temperature">Temperature data</a></li>
-      <li><a href="#curve">ILO/ISO curve</a></li>
-      <li><a href="#compression">Compression rate</a></li>
-      <li><a href="#wage">Wage anchor</a></li>
-      <li><a href="#ac">AC premium</a></li>
-      <li><a href="#output">Shadow output</a></li>
-      <li><a href="#limitations">Limitations</a></li>
-    </ul>
-  </aside>
-
-  <main class="main">
-
-    <div class="method-section" id="principle">
-      <p class="method-number">Core principle</p>
-      <h2 class="method-title">Measurement, not model.</h2>
-      <p>
-        This analysis makes no causal claim. We do not say heat causes
-        underdevelopment. We say: at these temperatures, these workers
-        produce less. That is a measurement, not an inference.
-      </p>
-      <p>
-        No regressions. No identification strategy. Just hourly data,
-        an international standard, and transparent arithmetic.
-      </p>
-      <p>
-        All estimates are <strong>lower bounds</strong> unless stated otherwise.
-        When an assumption can go either way, we choose the more conservative one.
-      </p>
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="/en/" class="nav-brand">The Heat <span>Tax</span></a>
+      <ul class="nav-links">
+        <li><a href="/en/">Home</a></li>
+        <li><a href="curve.html">Curve</a></li>
+        <li><a href="compression.html">Compression</a></li>
+        <li><a href="premium.html">AC Premium</a></li>
+        <li><a href="shadow.html">Synthesis</a></li>
+        <li><a href="methodology.html" class="active">Method</a></li>
+        <li><a href="data.html">Data</a></li>
+        <li><span class="lang-switch"><a href="/methodology.html">FR</a> / <a href="methodology.html" class="active">EN</a></span></li>
+        <li><a href="https://mauritan.me" class="nav-companion">Sahel Nights ↗</a></li>
+      </ul>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
+  </nav>
 
-    <div class="method-section" id="temperature">
-      <p class="method-number">01 — Temperature data</p>
-      <h2 class="method-title">Open-Meteo, 2019–2025.</h2>
-      <p>
-        Hourly temperature at 2 metres above ground for Nouakchott
-        (lat 18.0858 · lon −15.9785), from the Open-Meteo Historical API.
-        Period: January 2019 – December 2025. Timezone: UTC+0.
-      </p>
-      <p>
-        Analysis limited to working hours: <strong>08:00–18:00</strong>,
-        ten hours per day.
-      </p>
-
-      <div class="assumption">
-        <p class="assumption-label">Assumption</p>
-        <p><strong>Working window: 08:00–18:00.</strong></p>
-        <p>Reason: standard working hours in Mauritania.</p>
-        <p>Alternative: 07:00–19:00 would increase counted hours by ~20%.</p>
+  <main class="page-body">
+    <section class="section">
+      <div class="section-narrow">
+        <p class="section-label fade-up">05 · Method</p>
+        <h1 class="fade-up fade-up-d1">Methodology</h1>
+        <p class="lead fade-up fade-up-d2">We didn't model anything. We took a published curve, real temperatures, and official prices. Then we counted. Here's exactly how.</p>
       </div>
+    </section>
 
-      <div class="citation">
-        Open-Meteo Historical Weather API. License: CC BY 4.0.<br>
-        Model: ERA5, Copernicus / ECMWF.<br>
-        open-meteo.com/en/docs/historical-weather-api
+    <section class="section" style="padding-top: 0;">
+      <div class="section-narrow">
+        <div class="toc">
+          <h4>Contents</h4>
+          <ul>
+            <li><a href="#principles">General principles</a></li>
+            <li><a href="#component1">Component 1: Lost income</a></li>
+            <li><a href="#component2">Component 2: AC premium</a></li>
+            <li><a href="#limits">Limitations and what we don't count</a></li>
+          </ul>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="method-section" id="curve">
-      <p class="method-number">02 — The ILO/ISO curve</p>
-      <h2 class="method-title">We didn't invent this curve.</h2>
-      <p>
-        The work capacity curve comes from the ILO and ISO 7243:2017.
-        We apply it at <strong>moderate intensity</strong> (200–300 W metabolic rate)
-        — representative of market vendors, construction workers, and port workers.
-      </p>
+    <section class="section" id="principles">
+      <div class="section-narrow reveal">
+        <h2>General principles</h2>
+        <p>The analysis rests on two independent components, calculated separately, with no double counting. The first estimates income lost by heat-exposed workers. The second estimates the electricity surcharge for air-conditioned commercial spaces. These two populations are distinct by construction: a worker in an air-conditioned space is not heat-exposed.</p>
+        <p>Each component uses public data and declared assumptions. When a value is uncertain, we test three scenarios (low, central, high) to show the range. No parameter is tuned to achieve a predetermined result.</p>
 
-      <div class="formula">
-        <span class="comment"># ILO/ISO curve — temperature °C → capacity %</span><br>
-        <span class="val">24°C → 100%</span> &nbsp; <span class="val">28°C → 88%</span> &nbsp; <span class="val">30°C → 80%</span><br>
-        <span class="val">32°C → 70%</span>  &nbsp; <span class="val">34°C → 50%</span> &nbsp; <span class="val">36°C → 40%</span><br>
-        <span class="val">38°C → 30%</span>  &nbsp; <span class="val">40°C → 20%</span> &nbsp; <span class="val">42°C → 10%</span><br>
-        <span class="comment"># Linear interpolation between points</span><br>
-        capacity(T) = interp(T, ILO_ISO_curve)
+        <div class="callout callout-amber">
+          <h4>Analysis philosophy</h4>
+          <p>This work is not an economic model. It's a counting exercise. We take an established physical relationship (the ILO/ISO curve), real weather data, and observable prices. The only "model" is the temperature-capacity curve, and we didn't invent it — the ILO and ISO published it after decades of research.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="assumption">
-        <p class="assumption-label">Assumption</p>
-        <p><strong>Moderate intensity for all three target professions.</strong></p>
-        <p>Reason: standing work with light loads — ISO 7243 moderate classification.</p>
-        <p>Alternative: heavy intensity (heavy construction) would show more compression. Moderate is the central, conservative choice.</p>
+    <section class="section" id="component1">
+      <div class="section-narrow reveal">
+        <h2>Component 1: Worker income loss</h2>
+
+        <h3>Temperature data</h3>
+        <div class="assumption">
+          <div class="assumption-label">Source</div>
+          <div class="assumption-value">Open-Meteo Historical Weather API</div>
+          <p>Hourly data for Nouakchott (lat 18.0858, lon −15.9785), period 2019–2025. Temperature at 2m, relative humidity, wind speed — the three components needed for WBGT calculation.</p>
+        </div>
+
+        <h3 class="mt-lg">WBGT conversion</h3>
+        <p>WBGT (Wet Bulb Globe Temperature) is the heat stress index used by ISO 7243. It combines dry temperature, humidity, and solar radiation. We use the simplified Liljegren (2008) formula to convert weather data to hourly WBGT.</p>
+
+        <h3 class="mt-lg">Capacity curve</h3>
+        <div class="assumption">
+          <div class="assumption-label">Source</div>
+          <div class="assumption-value">ILO (2019), Working on a Warmer Planet + ISO 7243:2017</div>
+          <p>Work capacity curve at moderate intensity (200–300W metabolic). Below 26°C WBGT: 100% capacity. Above: measurable decline per degree.</p>
+        </div>
+
+        <h3 class="mt-lg">Working hours</h3>
+        <div class="assumption">
+          <div class="assumption-label">Time window</div>
+          <div class="assumption-value">08:00 – 18:00, 6 days/week</div>
+          <p>Covers typical working hours for Nouakchott's markets and shops. Friday is worked (half-day in some cases), Sunday excluded. This gives approximately 2,600 working hours per year.</p>
+        </div>
+
+        <h3 class="mt-lg">Reference wage</h3>
+        <div class="assumption">
+          <div class="assumption-label">Mauritania SMIG</div>
+          <div class="assumption-value">3,000 MRU/month (ILO ILOSTAT 2022)</div>
+          <p>Used as the base unit. The central scenario applies a 1.4× multiplier to reflect typical informal income.</p>
+        </div>
+
+        <div class="formula">
+          <span class="formula-label">Formula — Income loss</span>
+          <pre>For each hour h in [08:00, 18:00]:
+  capacity(h) = f_ILO(WBGT(h))      # between 0 and 1
+  loss(h)     = 1 − capacity(h)
+
+Hours lost/year = Σ loss(h)          # ≈ 730 h
+
+Cost/worker     = hours_lost × (annual_wage / working_hours)
+                = 730 × (1.4 × 36,000 / 2,600)
+                = 14,742 MRU
+
+City cost       = 14,742 × 120,000 workers
+                = 1,769 M MRU</pre>
+        </div>
+
+        <h3 class="mt-lg">Exposed population</h3>
+        <div class="assumption">
+          <div class="assumption-label">Exposed workers</div>
+          <div class="assumption-value">120,000 (central estimate)</div>
+          <p>Informal and semi-formal economy workers exposed to heat: merchants, artisans, drivers, masons, street vendors. Excludes air-conditioned office workers and government administration. Conservative — Nouakchott's working population exceeds 300,000.</p>
+        </div>
       </div>
+    </section>
 
-      <div class="citation">
-        ILO (2019). <em>Working on a Warmer Planet.</em> Geneva: ILO. ISBN 978-92-2-132968-9.<br><br>
-        ISO 7243:2017. <em>Ergonomics of the thermal environment — Assessment of heat stress
-        using the WBGT index.</em> Geneva: ISO.
+    <section class="section" id="component2">
+      <div class="section-narrow reveal">
+        <h2>Component 2: AC premium</h2>
+
+        <div class="assumption">
+          <div class="assumption-label">Commercial stock</div>
+          <div class="assumption-value">94,296 spaces</div>
+          <p>JICA (2018), Nouakchott Urban Master Plan, Table I-14. Includes shops, offices, workshops, services.</p>
+        </div>
+
+        <div class="assumption">
+          <div class="assumption-label">AC equipment rate</div>
+          <div class="assumption-value">1/5 (low) · 1/3 (central) · 1/2 (high)</div>
+          <p>Declared local estimate. No official source available. Central (1 in 3) is consistent with observation of the commercial fabric.</p>
+        </div>
+
+        <div class="assumption">
+          <div class="assumption-label">Electricity tariff</div>
+          <div class="assumption-value">5.903 MRU/kWh (SOMELEC, professional rate)</div>
+          <p>Effective rate for professional consumers, non-subsidised.</p>
+        </div>
+
+        <div class="formula">
+          <span class="formula-label">Formula — AC premium</span>
+          <pre>Equipped spaces = 94,296 × penetration_rate
+                = 94,296 × 1/3 = 31,432 (central)
+
+Monthly consumption per space ≈ f(month average temperature)
+  → ranges from ~150 kWh/month (January) to ~450 kWh/month (October)
+
+Monthly cost   = spaces × monthly_consumption × 5.903 MRU/kWh
+Annual cost    = Σ monthly_cost (12 months)
+               = 869 M MRU (central)</pre>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="method-section" id="compression">
-      <p class="method-number">03 — Compression rate</p>
-      <h2 class="method-title">Effective capacity = hourly sum.</h2>
-      <p>
-        For each hour in 2019–2025, we apply the curve to the observed temperature.
-        The sum gives the effective capacity.
-      </p>
+    <section class="section" id="limits">
+      <div class="section-narrow reveal">
+        <h2>Limitations and what we don't count</h2>
+        <p>Any honest analysis must name what it doesn't capture. Here are ours.</p>
 
-      <div class="formula">
-        <span class="comment"># Monthly effective capacity</span><br>
-        cap_effective = Σ capacity(temp_h)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for h in working_hours_of_month<br><br>
-        <span class="comment"># Monthly compression</span><br>
-        compression% = (total_hours − cap_effective)<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;÷ total_hours × 100<br><br>
-        <span class="comment"># Annual average 2019–2025</span><br>
-        compression = <span class="val">20.0%</span> &nbsp;·&nbsp; capacity = <span class="val">80.0%</span>
+        <div class="callout callout-red">
+          <h4>Not counted — Health impact</h4>
+          <p>Heat-related hospitalisations, mortality, chronic effects on exposed workers' health. These costs are real but require epidemiological data we don't have.</p>
+        </div>
+
+        <div class="callout callout-red">
+          <h4>Not counted — Power outages</h4>
+          <p>SOMELEC load shedding reduces the effective benefit of air conditioning. A shop experiencing 3 hours of outages per day in October doesn't fully benefit from its investment. We lack reliable data on outage frequency and duration.</p>
+        </div>
+
+        <div class="callout callout-red">
+          <h4>Not counted — Degraded formal sector</h4>
+          <p>Poorly air-conditioned offices — those whose AC can't handle the thermal load, or that suffer outages. These workers are neither "exposed" nor "protected" in our framework.</p>
+        </div>
+
+        <div class="callout callout-red">
+          <h4>Not counted — Peri-urban agriculture</h4>
+          <p>Crop yield losses in Nouakchott's market garden belt. Heat stress affects plants as much as workers, but that's a different calculation.</p>
+        </div>
+
+        <p class="mt-lg">Each of these exclusions pulls in the same direction: the true cost of heat is likely higher than our estimates. We prefer a conservative, defensible number to an exhaustive, speculative one.</p>
+
+        <div class="pullquote mt-xl">
+          <p>We didn't model anything. We observed the city, and counted.</p>
+        </div>
       </div>
-
-      <p>
-        The result is stable across the full period — between 78.3% and 82.4%.
-        This is not an artifact of an exceptional year.
-      </p>
-    </div>
-
-    <div class="method-section" id="wage">
-      <p class="method-number">04 — Wage anchor</p>
-      <h2 class="method-title">SMIG: the lower bound.</h2>
-      <p>
-        Monetary estimates are anchored to Mauritania's <strong>minimum wage</strong>
-        (SMIG: 3,000 MRU/month, ILO ILOSTAT 2022). Using the minimum wage
-        understates the real loss — informal workers often earn more.
-      </p>
-
-      <div class="formula">
-        <span class="comment"># Hourly derivation</span><br>
-        SMIG monthly  = <span class="val">3,000 MRU</span><br>
-        SMIG hourly   = 3,000 ÷ 26 days ÷ 8h = <span class="val">14.42 MRU/h</span><br><br>
-        <span class="comment"># Three wage scenarios</span><br>
-        conservative  = <span class="val">14.42 MRU/h</span>  (1.0× SMIG)<br>
-        central       = <span class="val">20.19 MRU/h</span>  (1.4× SMIG)<br>
-        upper         = <span class="val">25.96 MRU/h</span>  (1.8× SMIG)
-      </div>
-
-      <div class="citation">
-        ILO ILOSTAT. Dataset EAR_INEE_CUR_NB_A.<br>
-        Mauritania, monthly minimum wage, 2022. Value: 3,000 MRU.
-      </div>
-    </div>
-
-    <div class="method-section" id="ac">
-      <p class="method-number">05 — AC premium</p>
-      <h2 class="method-title">Money actually spent.</h2>
-      <p>
-        Unlike the income loss, the AC premium is money physically paid to SOMELEC.
-        Commercial stock estimated from the JICA 2018 Master Plan, Table I-14.
-      </p>
-
-      <div class="formula">
-        <span class="comment"># Commercial stock (JICA 2018)</span><br>
-        pure_commercial  = 952 ha ÷ 120 m²   = <span class="val">79,333 units</span><br>
-        mixed_use_GF     = 1,270 ha × 0.15 × 30% ÷ 120 m² = <span class="val">4,763</span><br>
-        govt_offices     = 204 ha × 0.15 ÷ 30 m²  = <span class="val">10,200</span><br>
-        total            = <span class="val">94,296 spaces</span><br><br>
-        <span class="comment"># AC penetration: 1 in 3</span><br>
-        ac_units         = 94,296 × 1/3 = <span class="val">31,432</span><br><br>
-        <span class="comment"># Annual cost (central scenario)</span><br>
-        cost = units × 2.5 kW × 0.75 × hours × <span class="val">5.903 MRU/kWh</span>
-      </div>
-
-      <div class="assumption">
-        <p class="assumption-label">Key assumption</p>
-        <p><strong>1 in 3 commercial spaces has AC.</strong></p>
-        <p>Reason: local knowledge — most Nouakchott commercial buildings have AC in the owner's office or back room, not full coverage.</p>
-        <p>Alternative: 1 in 5 (conservative) to 1 in 2 (upper). All three scenarios are reported.</p>
-      </div>
-
-      <div class="citation">
-        JICA (2018). <em>Nouakchott City Urban Master Plan.</em> Table I-14.<br>
-        openjicareport.jica.go.jp/pdf/12324729.pdf<br><br>
-        SOMELEC. <em>Tarifs Basse Tension.</em> Codes 7106–7136. Rate: 5.903 MRU/kWh.
-      </div>
-    </div>
-
-    <div class="method-section" id="output">
-      <p class="method-number">06 — Shadow output</p>
-      <h2 class="method-title">This is not GDP.</h2>
-      <p>
-        The 80% figure is not a national accounts measure. It is a scalar
-        applied to observed temperature data. The total heat tax combines
-        two independent components: worker income loss and commercial
-        cooling expenditure.
-      </p>
-
-      <div class="formula">
-        <span class="comment"># Total heat tax</span><br>
-        income_loss   = 120,000 × 14,742 MRU = <span class="val">1,769M MRU</span><br>
-        ac_premium    = 31,432 units × consumption × rate = <span class="val">869M MRU</span><br>
-        ────────────────────────────────────────────<br>
-        total         = <span class="val">2,638M MRU ≈ $73M USD / year</span>
-      </div>
-    </div>
-
-    <div class="method-section" id="limitations">
-      <p class="method-number">07 — Limitations</p>
-      <h2 class="method-title">What this analysis does not say.</h2>
-      <p>
-        We name our limitations before you find them.
-      </p>
-
-      <div class="limitations">
-        <p class="limitations-title">What this analysis does not claim</p>
-        <ul>
-          <li>Does not claim heat causes lower GDP</li>
-          <li>Does not predict future losses or climate change impacts</li>
-          <li>Does not cover agriculture or fishing sectors</li>
-          <li>Does not represent all workers — outdoor informal sector only</li>
-          <li>The capacity curve applies to moderate intensity only</li>
-          <li>OSM commercial stock is a lower bound (~15% of true stock)</li>
-          <li>SMIG 2022 may have been updated — all monetary estimates are lower bounds</li>
-          <li>AC penetration rate (1 in 3) is a local estimate, not a direct measurement</li>
-          <li>Does not account for seasonal workers leaving Nouakchott in summer</li>
-        </ul>
-      </div>
-
-      <p>
-        These limitations bound the analysis without invalidating it. Every
-        estimate points in the same direction: the real heat tax is probably
-        <strong>higher</strong> than what we report, not lower.
-      </p>
-    </div>
-
+    </section>
   </main>
-</div>
 
-<footer>
-  <div class="footer-links">
-    <a href="index.html">Home</a>
-    <a href="data.html">Data</a>
-    <a href="../methodology.html">Français</a>
-    <a href="https://github.com/agattbechar/nkc-heat-tax" target="_blank" rel="noopener">GitHub</a>
-  </div>
-  <p class="footer-author">
-    <a href="https://github.com/agattbechar" target="_blank" rel="noopener">Bechar Agatt</a>
-    &nbsp;·&nbsp; Nouakchott, Mauritania &nbsp;·&nbsp; 2026<br>
-    Open-Meteo CC BY 4.0 &nbsp;·&nbsp; ILO (2019) &nbsp;·&nbsp; ISO 7243:2017
-    &nbsp;·&nbsp; JICA 2018 &nbsp;·&nbsp; SOMELEC &nbsp;·&nbsp; ILO ILOSTAT
-  </p>
-</footer>
-
-<script>
-(function(){
-  var b=document.getElementById('nav-burger');
-  var d=document.getElementById('nav-drawer');
-  if(!b||!d)return;
-  b.addEventListener('click',function(){b.classList.toggle('open');d.classList.toggle('open');});
-  d.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){b.classList.remove('open');d.classList.remove('open');});
-  });
-})();
-</script>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">The Heat <span>Tax</span></div>
+      <ul class="footer-links">
+        <li><a href="data.html">Data</a></li>
+        <li><a href="https://github.com/agattbechar/nkc-heat-tax">GitHub</a></li>
+        <li><a href="https://mauritan.me">Sahel Nights</a></li>
+      </ul>
+      <p class="footer-meta">By <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritania</p>
+    </div>
+  </footer>
+  <script src="../site.js"></script>
 </body>
 </html>
