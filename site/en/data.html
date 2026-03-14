@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sources & Data — The Heat Tax</title>
+  <meta name="description" content="Every source used in the heat tax analysis, with access status and links to the GitHub repository.">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
@@ -29,57 +30,58 @@
     <section class="section">
       <div class="section-narrow">
         <p class="section-label fade-up">06 · Data</p>
-        <h1 class="fade-up fade-up-d1">Sources & data</h1>
-        <p class="lead fade-up fade-up-d2">Everything that goes into the analysis is listed here, with its access status. If a source is paywalled or restricted, we say so.</p>
+        <h1 class="fade-up fade-up-d1">All sources</h1>
+        <p class="lead fade-up fade-up-d2">Every source used in this analysis is listed below with its access status, role, and a direct link. Nothing is hidden. Everything is reproducible.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="section-narrow reveal">
-        <h2>Primary sources</h2>
-        <p>These are the sources whose data directly feeds the calculations.</p>
+        <h2>Data sources</h2>
 
         <ul class="source-list">
           <li>
-            <span class="source-badge badge-primary">Data</span>
+            <span class="source-badge badge-secondary">Open</span>
             <div class="source-text">
               <strong>Open-Meteo Historical Weather API</strong><br>
-              Hourly temperature, relative humidity, wind speed for Nouakchott (18.0858°N, −15.9785°W), 2019–2025. Free access, open API.
+              Hourly temperature at 2m, relative humidity, wind speed. ERA5 model (Copernicus / ECMWF). Coordinates: 18.0858°N, −15.9785°W. Period: 2019–2025. License: CC BY 4.0.<br>
+              <a href="https://open-meteo.com/en/docs/historical-weather-api">open-meteo.com</a>
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Curve</span>
+            <span class="source-badge badge-secondary">Open</span>
             <div class="source-text">
               <strong>ILO (2019), Working on a Warmer Planet</strong><br>
-              ILO report on heat stress and worker productivity. Contains work capacity curves by intensity level. Free access (PDF on ilo.org).
+              International Labour Organization report on the impact of heat stress on global productivity. Contains work capacity curves by metabolic intensity level, derived from ISO 7243. Open access (PDF on ilo.org).
             </div>
           </li>
           <li>
             <span class="source-badge badge-primary">Standard</span>
             <div class="source-text">
-              <strong>ISO 7243:2017</strong><br>
-              International standard for heat stress assessment in the workplace. Defines WBGT thresholds by activity level. Paid access (iso.org), but curves are reproduced in the ILO report.
+              <strong>ISO 7243:2017 — Heat stress assessment</strong><br>
+              International standard for evaluating heat stress in the workplace. Defines WBGT thresholds by metabolic activity level (light, moderate, heavy). Paid access (iso.org), but curves are reproduced in the ILO report.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Stock</span>
+            <span class="source-badge badge-primary">Official</span>
             <div class="source-text">
               <strong>JICA (2018), Nouakchott Urban Master Plan — Table I-14</strong><br>
-              Inventory of Nouakchott's commercial spaces: 94,296 units. Most recent and comprehensive source on the city's commercial fabric. Free access (JICA report).
+              Inventory of commercial spaces in Nouakchott: 94,296 units (shops, workshops, offices, services). The most recent and comprehensive source on the city's commercial fabric.<br>
+              <a href="https://openjicareport.jica.go.jp/">openjicareport.jica.go.jp</a>
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Tariff</span>
+            <span class="source-badge badge-primary">Official</span>
             <div class="source-text">
               <strong>SOMELEC — Professional tariff schedule</strong><br>
-              Rate of 5.903 MRU/kWh for professional consumers. Verified against SOMELEC's published tariff schedule.
+              Rate of 5.903 MRU/kWh for professional customers. This is the effective rate, not the subsidized residential rate.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Wage</span>
+            <span class="source-badge badge-primary">Official</span>
             <div class="source-text">
-              <strong>ILO ILOSTAT (2022) — Mauritania SMIG</strong><br>
-              Minimum wage: 3,000 MRU/month. Used as the base unit for wage scenarios.
+              <strong>ILO ILOSTAT (2022) — Mauritania minimum wage</strong><br>
+              Minimum wage (SMIG): 3,000 MRU/month. Used as the base unit for three wage scenarios (1.0×, 1.4×, 1.8× SMIG).
             </div>
           </li>
         </ul>
@@ -89,28 +91,81 @@
     <section class="section">
       <div class="section-narrow reveal">
         <h2>Reference sources</h2>
-        <p>These contextualise the analysis but don't directly feed the calculations.</p>
 
         <ul class="source-list">
           <li>
             <span class="source-badge badge-reference">Context</span>
             <div class="source-text">
-              <strong>World Bank — Mauritania Profile</strong><br>
-              Macroeconomic data, GDP, urban population. Used to contextualise orders of magnitude.
+              <strong>World Bank — Mauritania profile</strong><br>
+              Macroeconomic data, GDP, urban population. Used to contextualize orders of magnitude ($73M vs. national GDP).
             </div>
           </li>
           <li>
             <span class="source-badge badge-reference">Context</span>
             <div class="source-text">
               <strong>ONS Mauritania — Census and employment surveys</strong><br>
-              Working population, urbanisation rate, employment structure. Used to validate the 120,000 exposed worker estimate.
+              Nouakchott's working population, urbanization rate, formal/informal employment structure. Used to validate the 120,000 exposed worker estimate.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Context</span>
+            <div class="source-text">
+              <strong>AfDB — Desert-to-Power Roadmap Mauritania (2020)</strong><br>
+              SOMELEC installed capacity (~530 MW), energy mix (71% thermal), demand growth (6–7% per year). Grid context.<br>
+              <a href="https://www.afdb.org/sites/default/files/2024/08/23/desert-to-power_dtp_mauritania_roadmap_en_oct2020.pdf">afdb.org</a>
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Context</span>
+            <div class="source-text">
+              <strong>Climatescope 2022 — Mauritania</strong><br>
+              Peak demand (~200 MW), available capacity (~450 MW), electricity access rate (~55%). Grid context.<br>
+              <a href="https://2022.global-climatescope.org/markets/mr/">global-climatescope.org</a>
             </div>
           </li>
           <li>
             <span class="source-badge badge-reference">Method</span>
             <div class="source-text">
               <strong>Liljegren et al. (2008)</strong><br>
-              Simplified formula for temperature/humidity → WBGT conversion. Published in the Journal of Occupational and Environmental Hygiene.
+              Simplified formula for temperature/humidity → WBGT conversion. Journal of Occupational and Environmental Hygiene.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-narrow reveal">
+        <h2>Declared local knowledge</h2>
+        <p>Some assumptions don't come from databases but from direct observation. We declare them as such — these are stated parameters, not verifiable measurements.</p>
+
+        <ul class="source-list">
+          <li>
+            <span class="source-badge badge-primary">Declared</span>
+            <div class="source-text">
+              <strong>AC penetration rate: 1 in 3</strong><br>
+              There are no official statistics on commercial AC penetration in Nouakchott. The central estimate of 1 in 3 is a local observation, consistent with the commercial fabric. We also test 1/5 (conservative) and 1/2 (high).
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Declared</span>
+            <div class="source-text">
+              <strong>120,000 exposed workers</strong><br>
+              Central estimate. Nouakchott's working population exceeds 300,000, but we exclude those in air-conditioned offices, government, and formal service sectors.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Declared</span>
+            <div class="source-text">
+              <strong>Air conditioning as a class marker</strong><br>
+              Field observation. AC in Nouakchott divides the economy in two: one that runs year-round, and one that stops when it gets too hot. This framing is central to the project.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Declared</span>
+            <div class="source-text">
+              <strong>Power outages during heat peaks</strong><br>
+              Power cuts are frequent in Nouakchott and concentrate during peak demand — the hottest months. There is no public SOMELEC outage registry. Declared as context, corroborated by press coverage.
             </div>
           </li>
         </ul>
@@ -120,26 +175,25 @@
     <section class="section">
       <div class="section-narrow reveal">
         <h2>Reproducibility</h2>
-        <p>All code and data are available on GitHub. You can reproduce every number in this analysis, modify assumptions, and test your own scenarios.</p>
+        <p>The entire codebase — data pipeline, calculation scripts, visualizations, and the site itself — is available on GitHub. Anyone can reproduce the analysis from scratch with an internet connection and Python 3.</p>
 
         <div class="callout callout-amber">
-          <h4>GitHub repository</h4>
-          <p><a href="https://github.com/agattbechar/nkc-heat-tax">github.com/agattbechar/nkc-heat-tax</a></p>
-          <p>Contains data download scripts, compression calculations, cost scenarios, and this site's source code.</p>
+          <h4>Repository</h4>
+          <p><a href="https://github.com/agattbechar/nkc-heat-tax">github.com/agattbechar/nkc-heat-tax</a> — data pipeline, calculations, visualizations, static site. Everything reproducible from zero.</p>
         </div>
 
-        <p>If you find an error, a questionable assumption, or a better data source, open an issue on the repository. This work is open precisely so it can be challenged and improved.</p>
+        <p>If you find an error, a questionable assumption, or a better data source, open an issue on the repository. This work is open precisely to be challenged and improved.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="section-narrow reveal">
-        <a href="https://mauritan.me" class="companion">
+        <a href="https://mauritan.me/data.html" class="companion">
           <div class="companion-icon">☾</div>
           <div class="companion-text">
-            <h4>The companion project</h4>
-            <p>Sahel Nights uses the same approach — open data, declared assumptions, public code — to measure what heat does to Nouakchott's nightlife. Same philosophy, different angle.</p>
-            <span class="companion-link">mauritan.me →</span>
+            <h4>Companion project — Data</h4>
+            <p>Sahel Nights uses the same approach — open data, declared assumptions, public code — to measure Nouakchott's nights. Same Open-Meteo sources, same philosophy.</p>
+            <span class="companion-link">mauritan.me/data →</span>
           </div>
         </a>
       </div>

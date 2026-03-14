@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>La Taxe Canicule — Nouakchott perd 20% de son potentiel économique</title>
-  <meta name="description" content="La chaleur coûte 73 millions de dollars par an à Nouakchott. Nous avons compté.">
+  <title>Sources et données — La Taxe Canicule</title>
+  <meta name="description" content="Toutes les sources utilisées dans l'analyse de la taxe canicule, avec leur statut d'accès et le lien vers le dépôt GitHub.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,187 +12,192 @@
     <div class="nav-inner">
       <a href="./" class="nav-brand">La Taxe <span>Canicule</span></a>
       <ul class="nav-links">
-        <li><a href="./" class="active">Accueil</a></li>
+        <li><a href="./">Accueil</a></li>
         <li><a href="curve.html">Courbe</a></li>
         <li><a href="compression.html">Compression</a></li>
         <li><a href="premium.html">Climatisation</a></li>
         <li><a href="shadow.html">Synthèse</a></li>
         <li><a href="methodology.html">Méthode</a></li>
-        <li><a href="data.html">Données</a></li>
-        <li><span class="lang-switch"><a href="./" class="active">FR</a> / <a href="en/">EN</a></span></li>
+        <li><a href="data.html" class="active">Données</a></li>
+        <li><span class="lang-switch"><a href="data.html" class="active">FR</a> / <a href="en/data.html">EN</a></span></li>
         <li><a href="https://mauritan.me" class="nav-companion">Nuits du Sahel ↗</a></li>
       </ul>
-      <button class="nav-toggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <main class="page-body">
-
-    <!-- Hero -->
-    <section class="hero">
-      <p class="hero-label fade-up">Nouakchott, Mauritanie — 2019–2025</p>
-      <h1 class="hero-title fade-up fade-up-d1">La Taxe Canicule</h1>
-      <div class="hero-number fade-up fade-up-d2">80<span class="hero-number-suffix">%</span></div>
-      <p class="hero-headline fade-up fade-up-d3">Nouakchott ne fonctionne qu'à 80% de son potentiel. La chaleur prend le reste.</p>
-      <p class="hero-body fade-up fade-up-d3">Chaque année, la température coûte à la ville 73 millions de dollars — en heures de travail perdues et en factures d'électricité. Ce n'est pas une projection. C'est un constat.</p>
-    </section>
-
-    <!-- What is this -->
     <section class="section">
-      <div class="section-narrow reveal">
-        <p class="section-label">La taxe canicule</p>
-        <h2>Ce que la chaleur coûte réellement</h2>
-        <p>Il y a un coût que personne ne facture mais que tout le monde paie. À Nouakchott, quand le thermomètre dépasse 33°C — ce qui arrive la majorité de l'année — le corps humain ralentit. Ce n'est pas une question de volonté. C'est de la physiologie. L'Organisation Internationale du Travail a quantifié ce phénomène : au-delà de certains seuils de température, la capacité de travail chute de manière mesurable et prévisible.</p>
-        <p>Nous avons appliqué cette courbe à Nouakchott. Heure par heure, mois par mois, sur six ans de données météorologiques. Et nous avons compté ce que la ville perd — en revenus pour les travailleurs exposés, et en électricité pour ceux qui peuvent se payer la climatisation.</p>
-        <p>Le résultat : <strong>Nouakchott tourne à 80% de ce qu'elle pourrait produire.</strong> Les 20% restants, c'est la taxe canicule. Personne ne l'a votée, mais tout le monde la paie.</p>
+      <div class="section-narrow">
+        <p class="section-label fade-up">06 · Données</p>
+        <h1 class="fade-up fade-up-d1">Toutes les sources</h1>
+        <p class="lead fade-up fade-up-d2">Chaque source utilisée dans cette analyse est listée ci-dessous avec son statut d'accès, son rôle et un lien direct. Rien n'est caché. Tout est reproductible.</p>
       </div>
     </section>
 
-    <!-- Key numbers -->
     <section class="section">
-      <div class="section-wide reveal">
-        <p class="section-label">Les chiffres</p>
-        <h2>Six ans de chaleur, comptés</h2>
-        <p class="lead">Deux composantes indépendantes, pas de double comptage. Les heures perdues touchent ceux qui travaillent à l'extérieur. La facture d'électricité touche ceux qui ont la climatisation. Ce ne sont pas les mêmes personnes.</p>
+      <div class="section-narrow reveal">
+        <h2>Sources de données</h2>
 
-        <div class="stat-grid">
-          <div class="stat-card highlight">
-            <span class="label">Production effective</span>
-            <div class="value">80<span class="value-unit">%</span></div>
-            <span class="note">Du potentiel théorique</span>
-          </div>
-          <div class="stat-card">
-            <span class="label">Compression annuelle</span>
-            <div class="value">20<span class="value-unit">%</span></div>
-            <span class="note">De la capacité perdue</span>
-          </div>
-          <div class="stat-card">
-            <span class="label">Pire mois</span>
-            <div class="value">Octobre</div>
-            <span class="note">37.8% de perte — pas juillet</span>
-          </div>
-          <div class="stat-card">
-            <span class="label">Heures perdues / travailleur</span>
-            <div class="value">730<span class="value-unit"> h/an</span></div>
-            <span class="note">Sur 2 600 h travaillées</span>
-          </div>
+        <ul class="source-list">
+          <li>
+            <span class="source-badge badge-secondary">Open</span>
+            <div class="source-text">
+              <strong>Open-Meteo Historical Weather API</strong><br>
+              Données horaires de température à 2m, humidité relative, vitesse du vent. Modèle ERA5 (Copernicus / ECMWF). Coordonnées : 18.0858°N, −15.9785°W. Période : 2019–2025. Licence CC BY 4.0.<br>
+              <a href="https://open-meteo.com/en/docs/historical-weather-api">open-meteo.com</a>
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-secondary">Open</span>
+            <div class="source-text">
+              <strong>ILO (2019), Working on a Warmer Planet</strong><br>
+              Rapport de l'Organisation Internationale du Travail sur l'impact du stress thermique sur la productivité mondiale. Contient les courbes de capacité de travail par niveau d'intensité métabolique, dérivées de la norme ISO 7243. Accès libre (PDF sur ilo.org).
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Norme</span>
+            <div class="source-text">
+              <strong>ISO 7243:2017 — Stress thermique</strong><br>
+              Norme internationale pour l'évaluation du stress thermique en milieu de travail. Définit les seuils WBGT par niveau d'activité métabolique (léger, modéré, lourd). Accès payant (iso.org), mais les courbes sont reproduites dans le rapport ILO.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Officiel</span>
+            <div class="source-text">
+              <strong>JICA (2018), Plan Directeur Urbain de Nouakchott — Table I-14</strong><br>
+              Inventaire des espaces commerciaux de Nouakchott : 94 296 unités (commerces, ateliers, bureaux, services). Source la plus récente et la plus complète sur le tissu commercial de la ville.<br>
+              <a href="https://openjicareport.jica.go.jp/">openjicareport.jica.go.jp</a>
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Officiel</span>
+            <div class="source-text">
+              <strong>SOMELEC — Grille tarifaire professionnelle</strong><br>
+              Tarif de 5.903 MRU/kWh pour les consommateurs professionnels. C'est le tarif effectif, pas le tarif subventionné résidentiel.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Officiel</span>
+            <div class="source-text">
+              <strong>ILO ILOSTAT (2022) — SMIG Mauritanie</strong><br>
+              Salaire minimum interprofessionnel garanti : 3 000 MRU/mois. Utilisé comme unité de base pour les trois scénarios de salaire (1.0×, 1.4×, 1.8× SMIG).
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-narrow reveal">
+        <h2>Sources de référence</h2>
+
+        <ul class="source-list">
+          <li>
+            <span class="source-badge badge-reference">Contexte</span>
+            <div class="source-text">
+              <strong>Banque Mondiale — Profil Mauritanie</strong><br>
+              Données macroéconomiques, PIB, population urbaine. Utilisées pour contextualiser les ordres de grandeur ($73M vs. PIB national).
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Contexte</span>
+            <div class="source-text">
+              <strong>ONS Mauritanie — Recensement et enquêtes emploi</strong><br>
+              Population active de Nouakchott, taux d'urbanisation, structure de l'emploi formel/informel. Utilisées pour valider l'estimation de 120 000 travailleurs exposés.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Contexte</span>
+            <div class="source-text">
+              <strong>AfDB — Desert-to-Power Roadmap Mauritanie (2020)</strong><br>
+              Capacité installée SOMELEC (~530 MW), mix énergétique (71% thermique), croissance de la demande (6–7% par an). Contexte réseau électrique.<br>
+              <a href="https://www.afdb.org/sites/default/files/2024/08/23/desert-to-power_dtp_mauritania_roadmap_en_oct2020.pdf">afdb.org</a>
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Contexte</span>
+            <div class="source-text">
+              <strong>Climatescope 2022 — Mauritanie</strong><br>
+              Demande de pointe (~200 MW), capacité disponible (~450 MW), taux d'accès à l'électricité (~55%). Contexte réseau.<br>
+              <a href="https://2022.global-climatescope.org/markets/mr/">global-climatescope.org</a>
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-reference">Méthode</span>
+            <div class="source-text">
+              <strong>Liljegren et al. (2008)</strong><br>
+              Formule simplifiée de conversion température/humidité → WBGT. Journal of Occupational and Environmental Hygiene.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-narrow reveal">
+        <h2>Connaissance locale déclarée</h2>
+        <p>Certaines hypothèses ne proviennent pas de bases de données mais de l'observation directe. Nous les déclarons comme telles — ce sont des paramètres déclarés, pas des mesures vérifiables.</p>
+
+        <ul class="source-list">
+          <li>
+            <span class="source-badge badge-primary">Déclaré</span>
+            <div class="source-text">
+              <strong>Taux d'équipement AC : 1 local sur 3</strong><br>
+              Il n'existe pas de données officielles sur le taux d'équipement en climatisation des commerces à Nouakchott. Le chiffre central de 1 sur 3 est une estimation locale, cohérente avec l'observation du tissu commercial. Nous testons aussi 1/5 (conservateur) et 1/2 (haut).
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Déclaré</span>
+            <div class="source-text">
+              <strong>120 000 travailleurs exposés</strong><br>
+              Estimation centrale. La population active de Nouakchott dépasse 300 000, mais nous excluons ceux qui travaillent dans des bureaux climatisés, l'administration, et les services formels.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Déclaré</span>
+            <div class="source-text">
+              <strong>La climatisation comme marqueur de classe</strong><br>
+              Observation de terrain. La climatisation à Nouakchott divise l'économie en deux : celle qui tourne toute l'année, et celle qui s'arrête quand il fait trop chaud. Ce cadrage est central au projet.
+            </div>
+          </li>
+          <li>
+            <span class="source-badge badge-primary">Déclaré</span>
+            <div class="source-text">
+              <strong>Coupures de courant en période de chaleur</strong><br>
+              Les coupures d'électricité sont fréquentes à Nouakchott et se concentrent pendant les pics de demande — c'est-à-dire les mois les plus chauds. Il n'existe pas de registre public des pannes SOMELEC. Déclaré comme contexte, corroboré par la presse.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-narrow reveal">
+        <h2>Reproductibilité</h2>
+        <p>L'intégralité du code — pipeline de données, scripts de calcul, visualisations, et le site lui-même — est disponible sur GitHub. N'importe qui peut reproduire l'analyse de zéro avec une connexion internet et Python 3.</p>
+
+        <div class="callout callout-amber">
+          <h4>Dépôt</h4>
+          <p><a href="https://github.com/agattbechar/nkc-heat-tax">github.com/agattbechar/nkc-heat-tax</a> — pipeline de données, calculs, visualisations, site statique. Tout est reproductible de zéro.</p>
         </div>
 
-        <div class="stat-grid mt-md">
-          <div class="stat-card">
-            <span class="label">Coût par travailleur</span>
-            <div class="value">14 742<span class="value-unit"> MRU</span></div>
-            <span class="note">41% du SMIG annuel · scénario central</span>
-          </div>
-          <div class="stat-card">
-            <span class="label">Perte de revenus urbaine</span>
-            <div class="value">1 769<span class="value-unit"> M MRU</span></div>
-            <span class="note">≈ $49M USD · 120 000 travailleurs</span>
-          </div>
-          <div class="stat-card">
-            <span class="label">Surprime climatisation</span>
-            <div class="value">869<span class="value-unit"> M MRU</span></div>
-            <span class="note">≈ $24M USD · 1 local sur 3 équipé</span>
-          </div>
-          <div class="stat-card highlight">
-            <span class="label">Taxe canicule totale</span>
-            <div class="value">2 638<span class="value-unit"> M MRU</span></div>
-            <span class="note">≈ $73M USD / an</span>
-          </div>
-        </div>
+        <p>Si vous trouvez une erreur, une hypothèse discutable, ou une meilleure source de données, ouvrez une issue sur le dépôt. Ce travail est ouvert précisément pour être contesté et amélioré.</p>
       </div>
     </section>
 
-    <!-- October finding -->
     <section class="section">
       <div class="section-narrow reveal">
-        <p class="section-label">Le résultat le plus net</p>
-        <h2>Octobre, pas juillet</h2>
-        <p>Tout le monde à Nouakchott sait que les mois les plus durs ne sont pas ceux qu'on imagine depuis l'étranger. Juillet a l'harmattan — un vent sec qui, malgré la chaleur, apporte un répit relatif. Octobre n'a rien de tout ça. Octobre, c'est la chaleur humide sans soulagement, les nuits qui ne refroidissent pas, l'air qui reste lourd du matin au soir.</p>
-        <p>Les données confirment ce que les Nouakchottois savent depuis toujours : <strong>octobre est le pire mois, avec 37.8% de capacité perdue.</strong> Janvier, le plus clément, ne perd que 9%. L'écart entre les deux est un gouffre — c'est là que se joue la productivité de la ville.</p>
-      </div>
-    </section>
-
-    <!-- Pullquote -->
-    <section class="section">
-      <div class="section-narrow reveal">
-        <div class="pullquote">
-          <p>La climatisation à Nouakchott, c'est pas du confort. C'est un marqueur de classe. Ceux qui peuvent se la payer continuent à travailler. Ceux qui ne peuvent pas, s'arrêtent.</p>
-        </div>
-        <p class="mt-md">Cette observation ne vient pas d'un rapport. Elle vient de la rue. La climatisation divise Nouakchott en deux économies : celle qui tourne toute l'année, et celle qui s'arrête quand il fait trop chaud. La surprime AC — ces 869 millions de MRU — ce n'est pas un luxe. C'est le prix que paient ceux qui peuvent se permettre de ne pas s'arrêter.</p>
-      </div>
-    </section>
-
-    <!-- Section previews -->
-    <section class="section">
-      <div class="section-narrow reveal">
-        <p class="section-label">Explorer l'analyse</p>
-        <h2>Comment nous avons compté</h2>
-        <p class="lead">Chaque section détaille un aspect de l'analyse. Les données, la méthode, les hypothèses — tout est ouvert.</p>
-
-        <a href="curve.html" class="section-preview">
-          <div class="preview-number">01</div>
-          <h3>La courbe ILO/ISO</h3>
-          <p>Comment la température réduit la capacité de travail. La courbe de référence, appliquée aux températures de Nouakchott heure par heure.</p>
-        </a>
-
-        <a href="compression.html" class="section-preview">
-          <div class="preview-number">02</div>
-          <h3>730 heures perdues</h3>
-          <p>Ce que signifie perdre 730 heures par an pour un travailleur exposé. Le détail mensuel, les scénarios de salaire, le coût humain.</p>
-        </a>
-
-        <a href="premium.html" class="section-preview">
-          <div class="preview-number">03</div>
-          <h3>La surprime climatisation</h3>
-          <p>La climatisation comme marqueur de classe. D'où vient le chiffre de 94 296 locaux, combien sont climatisés, ce que ça coûte en électricité.</p>
-        </a>
-
-        <a href="shadow.html" class="section-preview">
-          <div class="preview-number">04</div>
-          <h3>L'équation complète</h3>
-          <p>La synthèse. Revenus perdus + surprime AC = la taxe canicule. Ce que Nouakchott perd chaque année, et ce que ça signifie.</p>
-        </a>
-
-        <a href="methodology.html" class="section-preview">
-          <div class="preview-number">05</div>
-          <h3>Méthodologie</h3>
-          <p>Chaque hypothèse déclarée, chaque formule montrée, chaque limite nommée. Nous n'avons rien modélisé — nous avons observé et compté.</p>
-        </a>
-
-        <a href="data.html" class="section-preview">
-          <div class="preview-number">06</div>
-          <h3>Sources et données</h3>
-          <p>Toutes les sources utilisées, leur statut d'accès, et le lien vers le dépôt GitHub pour reproduire l'analyse.</p>
-        </a>
-      </div>
-    </section>
-
-    <!-- Companion -->
-    <section class="section">
-      <div class="section-narrow reveal">
-        <a href="https://mauritan.me" class="companion">
+        <a href="https://mauritan.me/data.html" class="companion">
           <div class="companion-icon">☾</div>
           <div class="companion-text">
-            <h4>Les Nuits du Sahel</h4>
-            <p>Ce site mesure le jour — ce que la chaleur coûte pendant les heures de travail. Son projet compagnon, Les Nuits du Sahel, mesure la nuit — quand la ville se vide parce qu'il fait trop chaud pour sortir. Ensemble, ils montrent les deux faces de la même chaleur.</p>
-            <span class="companion-link">mauritan.me →</span>
+            <h4>Projet compagnon — Données</h4>
+            <p>Les Nuits du Sahel utilise la même approche — données ouvertes, hypothèses déclarées, code public — pour mesurer les nuits de Nouakchott. Même sources Open-Meteo, même philosophie.</p>
+            <span class="companion-link">mauritan.me/data →</span>
           </div>
         </a>
       </div>
     </section>
-
-    <!-- Closing -->
-    <section class="section">
-      <div class="section-narrow reveal text-center">
-        <div class="pullquote" style="text-align: center; border-left: none; border-top: 3px solid var(--amber); border-radius: 6px 6px 0 0; padding-top: var(--space-lg);">
-          <p>Nous n'avons rien modélisé. Nous avons observé la ville, et compté.</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="site-footer">
@@ -200,17 +205,12 @@
       <div class="footer-brand">La Taxe <span>Canicule</span></div>
       <ul class="footer-links">
         <li><a href="methodology.html">Méthode</a></li>
-        <li><a href="data.html">Données</a></li>
         <li><a href="https://github.com/agattbechar/nkc-heat-tax">GitHub</a></li>
         <li><a href="https://mauritan.me">Nuits du Sahel</a></li>
       </ul>
-      <p class="footer-meta">
-        Par <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritanie<br>
-        Données Open-Meteo 2019–2025 · Méthodologie ILO/ISO 7243
-      </p>
+      <p class="footer-meta">Par <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritanie</p>
     </div>
   </footer>
-
   <script src="site.js"></script>
 </body>
 </html>
