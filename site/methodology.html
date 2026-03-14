@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Méthodologie — La Taxe Canicule</title>
-  <meta name="description" content="Chaque hypothèse déclarée, chaque formule montrée, chaque limite nommée.">
-  <link rel="stylesheet" href="style.css">
+  <title>Methodology — The Heat Tax</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">La Taxe <span>Canicule</span></a>
+      <a href="./" class="nav-brand">The Heat <span>Tax</span></a>
       <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="curve.html">Courbe</a></li>
+        <li><a href="./">Home</a></li>
+        <li><a href="curve.html">Curve</a></li>
         <li><a href="compression.html">Compression</a></li>
-        <li><a href="premium.html">Climatisation</a></li>
-        <li><a href="shadow.html">Synthèse</a></li>
-        <li><a href="methodology.html" class="active">Méthode</a></li>
-        <li><a href="data.html">Données</a></li>
-        <li><span class="lang-switch"><a href="methodology.html" class="active">FR</a> / <a href="en/methodology.html">EN</a></span></li>
-        <li><a href="https://mauritan.me" class="nav-companion">Nuits du Sahel ↗</a></li>
+        <li><a href="premium.html">AC Premium</a></li>
+        <li><a href="shadow.html">Synthesis</a></li>
+        <li><a href="methodology.html" class="active">Method</a></li>
+        <li><a href="data.html">Data</a></li>
+        <li><span class="lang-switch"><a href="../methodology.html">FR</a> / <a href="methodology.html" class="active">EN</a></span></li>
+        <li><a href="https://mauritan.me" class="nav-companion">Sahel Nights ↗</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -29,170 +28,165 @@
   <main class="page-body">
     <section class="section">
       <div class="section-narrow">
-        <p class="section-label fade-up">05 · La méthode</p>
-        <h1 class="fade-up fade-up-d1">Méthodologie</h1>
-        <p class="lead fade-up fade-up-d2">Nous n'avons rien modélisé. Nous avons pris une courbe publiée, des températures réelles, et des prix officiels. Puis nous avons compté. Voici exactement comment.</p>
+        <p class="section-label fade-up">05 · Method</p>
+        <h1 class="fade-up fade-up-d1">Methodology</h1>
+        <p class="lead fade-up fade-up-d2">We didn't model anything. We took a published curve, real temperatures, and official prices. Then we counted. Here's exactly how.</p>
       </div>
     </section>
 
-    <!-- TOC -->
     <section class="section" style="padding-top: 0;">
       <div class="section-narrow">
         <div class="toc">
-          <h4>Sommaire</h4>
+          <h4>Contents</h4>
           <ul>
-            <li><a href="#principes">Principes généraux</a></li>
-            <li><a href="#composante1">Composante 1 : Perte de revenus</a></li>
-            <li><a href="#composante2">Composante 2 : Surprime AC</a></li>
-            <li><a href="#limites">Limites et ce que nous ne comptons pas</a></li>
+            <li><a href="#principles">General principles</a></li>
+            <li><a href="#component1">Component 1: Lost income</a></li>
+            <li><a href="#component2">Component 2: AC premium</a></li>
+            <li><a href="#limits">Limitations and what we don't count</a></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Principles -->
-    <section class="section" id="principes">
+    <section class="section" id="principles">
       <div class="section-narrow reveal">
-        <h2>Principes généraux</h2>
-        <p>L'analyse repose sur deux composantes indépendantes, calculées séparément, sans double comptage. La première estime les revenus perdus par les travailleurs exposés à la chaleur. La seconde estime le surcoût en électricité pour les locaux commerciaux climatisés. Ces deux populations sont distinctes par construction : un travailleur dans un local climatisé n'est pas exposé à la chaleur.</p>
-        <p>Chaque composante utilise des données publiques et des hypothèses déclarées. Quand une valeur est incertaine, nous testons trois scénarios (bas, central, haut) pour montrer la fourchette. Aucun paramètre n'est ajusté pour obtenir un résultat prédéterminé.</p>
+        <h2>General principles</h2>
+        <p>The analysis rests on two independent components, calculated separately, with no double counting. The first estimates income lost by heat-exposed workers. The second estimates the electricity surcharge for air-conditioned commercial spaces. These two populations are distinct by construction: a worker in an air-conditioned space is not heat-exposed.</p>
+        <p>Each component uses public data and declared assumptions. When a value is uncertain, we test three scenarios (low, central, high) to show the range. No parameter is tuned to achieve a predetermined result.</p>
 
         <div class="callout callout-amber">
-          <h4>Philosophie de l'analyse</h4>
-          <p>Ce travail n'est pas un modèle économique. C'est un exercice de comptage. Nous prenons une relation physique établie (la courbe ILO/ISO), des données météorologiques réelles, et des prix observables. Le seul « modèle » est la courbe température-capacité, et nous ne l'avons pas inventée — l'OIT et l'ISO l'ont publiée après des décennies de recherche.</p>
+          <h4>Analysis philosophy</h4>
+          <p>This work is not an economic model. It's a counting exercise. We take an established physical relationship (the ILO/ISO curve), real weather data, and observable prices. The only "model" is the temperature-capacity curve, and we didn't invent it — the ILO and ISO published it after decades of research.</p>
         </div>
       </div>
     </section>
 
-    <!-- Component 1 -->
-    <section class="section" id="composante1">
+    <section class="section" id="component1">
       <div class="section-narrow reveal">
-        <h2>Composante 1 : Perte de revenus des travailleurs</h2>
+        <h2>Component 1: Worker income loss</h2>
 
-        <h3>Données de température</h3>
+        <h3>Temperature data</h3>
         <div class="assumption">
           <div class="assumption-label">Source</div>
           <div class="assumption-value">Open-Meteo Historical Weather API</div>
-          <p>Données horaires pour Nouakchott (lat 18.0858, lon −15.9785), période 2019–2025. Température à 2m, humidité relative, vitesse du vent — les trois composantes nécessaires au calcul WBGT.</p>
+          <p>Hourly data for Nouakchott (lat 18.0858, lon −15.9785), period 2019–2025. Temperature at 2m, relative humidity, wind speed — the three components needed for WBGT calculation.</p>
         </div>
 
-        <h3 class="mt-lg">Conversion en WBGT</h3>
-        <p>Le WBGT (Wet Bulb Globe Temperature) est l'indice de stress thermique utilisé par l'ISO 7243. Il combine la température sèche, l'humidité, et le rayonnement solaire. Nous utilisons la formule simplifiée de Liljegren (2008) pour convertir les données météorologiques en WBGT heure par heure.</p>
+        <h3 class="mt-lg">WBGT conversion</h3>
+        <p>WBGT (Wet Bulb Globe Temperature) is the heat stress index used by ISO 7243. It combines dry temperature, humidity, and solar radiation. We use the simplified Liljegren (2008) formula to convert weather data to hourly WBGT.</p>
 
-        <h3 class="mt-lg">Courbe de capacité</h3>
+        <h3 class="mt-lg">Capacity curve</h3>
         <div class="assumption">
           <div class="assumption-label">Source</div>
           <div class="assumption-value">ILO (2019), Working on a Warmer Planet + ISO 7243:2017</div>
-          <p>Courbe de capacité de travail à intensité modérée (200–300W métabolique). En dessous de 26°C WBGT : 100% de capacité. Au-delà : décroissance mesurable par degré.</p>
+          <p>Work capacity curve at moderate intensity (200–300W metabolic). Below 26°C WBGT: 100% capacity. Above: measurable decline per degree.</p>
         </div>
 
-        <h3 class="mt-lg">Heures de travail</h3>
+        <h3 class="mt-lg">Working hours</h3>
         <div class="assumption">
-          <div class="assumption-label">Plage horaire</div>
-          <div class="assumption-value">08h00 – 18h00, 6 jours / semaine</div>
-          <p>Nous couvrons les heures ouvrées typiques des marchés et commerces de Nouakchott. Le vendredi est travaillé (demi-journée dans certains cas), le dimanche est exclu. Cela donne environ 2 600 heures ouvrées par an.</p>
+          <div class="assumption-label">Time window</div>
+          <div class="assumption-value">08:00 – 18:00, 6 days/week</div>
+          <p>Covers typical working hours for Nouakchott's markets and shops. Friday is worked (half-day in some cases), Sunday excluded. This gives approximately 2,600 working hours per year.</p>
         </div>
 
-        <h3 class="mt-lg">Salaire de référence</h3>
+        <h3 class="mt-lg">Reference wage</h3>
         <div class="assumption">
-          <div class="assumption-label">SMIG Mauritanie</div>
-          <div class="assumption-value">3 000 MRU / mois (ILO ILOSTAT 2022)</div>
-          <p>Utilisé comme unité de base. Le scénario central applique un multiplicateur de 1.4× pour refléter le revenu informel typique.</p>
+          <div class="assumption-label">Mauritania SMIG</div>
+          <div class="assumption-value">3,000 MRU/month (ILO ILOSTAT 2022)</div>
+          <p>Used as the base unit. The central scenario applies a 1.4× multiplier to reflect typical informal income.</p>
         </div>
 
         <div class="formula">
-          <span class="formula-label">Formule — Perte de revenus</span>
-          <pre>Pour chaque heure h dans [08:00, 18:00] :
-  capacité(h) = f_ILO(WBGT(h))      # entre 0 et 1
-  perte(h)    = 1 − capacité(h)
+          <span class="formula-label">Formula — Income loss</span>
+          <pre>For each hour h in [08:00, 18:00]:
+  capacity(h) = f_ILO(WBGT(h))      # between 0 and 1
+  loss(h)     = 1 − capacity(h)
 
-Heures perdues / an = Σ perte(h)     # ≈ 730 h
+Hours lost/year = Σ loss(h)          # ≈ 730 h
 
-Coût / travailleur  = heures_perdues × (salaire_annuel / heures_ouvrées)
-                    = 730 × (1.4 × 36 000 / 2 600)
-                    = 14 742 MRU
+Cost/worker     = hours_lost × (annual_wage / working_hours)
+                = 730 × (1.4 × 36,000 / 2,600)
+                = 14,742 MRU
 
-Coût urbain         = 14 742 × 120 000 travailleurs
-                    = 1 769 M MRU</pre>
+City cost       = 14,742 × 120,000 workers
+                = 1,769 M MRU</pre>
         </div>
 
-        <h3 class="mt-lg">Population exposée</h3>
+        <h3 class="mt-lg">Exposed population</h3>
         <div class="assumption">
-          <div class="assumption-label">Travailleurs exposés</div>
-          <div class="assumption-value">120 000 (estimation centrale)</div>
-          <p>Travailleurs de l'économie informelle et semi-formelle exposés à la chaleur : marchands, artisans, chauffeurs, maçons, vendeurs ambulants. Exclut les travailleurs en bureau climatisé et l'administration. L'estimation est conservatrice — la population active de Nouakchott dépasse 300 000.</p>
+          <div class="assumption-label">Exposed workers</div>
+          <div class="assumption-value">120,000 (central estimate)</div>
+          <p>Informal and semi-formal economy workers exposed to heat: merchants, artisans, drivers, masons, street vendors. Excludes air-conditioned office workers and government administration. Conservative — Nouakchott's working population exceeds 300,000.</p>
         </div>
       </div>
     </section>
 
-    <!-- Component 2 -->
-    <section class="section" id="composante2">
+    <section class="section" id="component2">
       <div class="section-narrow reveal">
-        <h2>Composante 2 : Surprime climatisation</h2>
+        <h2>Component 2: AC premium</h2>
 
         <div class="assumption">
-          <div class="assumption-label">Stock de locaux commerciaux</div>
-          <div class="assumption-value">94 296 espaces</div>
-          <p>JICA (2018), Nouakchott Urban Master Plan, Table I-14. Inclut commerces, bureaux, ateliers, services.</p>
+          <div class="assumption-label">Commercial stock</div>
+          <div class="assumption-value">94,296 spaces</div>
+          <p>JICA (2018), Nouakchott Urban Master Plan, Table I-14. Includes shops, offices, workshops, services.</p>
         </div>
 
         <div class="assumption">
-          <div class="assumption-label">Taux d'équipement AC</div>
-          <div class="assumption-value">1/5 (bas) · 1/3 (central) · 1/2 (haut)</div>
-          <p>Estimation locale déclarée. Pas de source officielle disponible. Le scénario central (1 sur 3) est cohérent avec l'observation du tissu commercial.</p>
+          <div class="assumption-label">AC equipment rate</div>
+          <div class="assumption-value">1/5 (low) · 1/3 (central) · 1/2 (high)</div>
+          <p>Declared local estimate. No official source available. Central (1 in 3) is consistent with observation of the commercial fabric.</p>
         </div>
 
         <div class="assumption">
-          <div class="assumption-label">Tarif électricité</div>
-          <div class="assumption-value">5.903 MRU / kWh (SOMELEC, tarif professionnel)</div>
-          <p>Tarif effectif pour les consommateurs professionnels, non subventionné.</p>
+          <div class="assumption-label">Electricity tariff</div>
+          <div class="assumption-value">5.903 MRU/kWh (SOMELEC, professional rate)</div>
+          <p>Effective rate for professional consumers, non-subsidised.</p>
         </div>
 
         <div class="formula">
-          <span class="formula-label">Formule — Surprime AC</span>
-          <pre>Locaux équipés = 94 296 × taux_pénétration
-               = 94 296 × 1/3 = 31 432 (central)
+          <span class="formula-label">Formula — AC premium</span>
+          <pre>Equipped spaces = 94,296 × penetration_rate
+                = 94,296 × 1/3 = 31,432 (central)
 
-Conso mensuelle par local ≈ f(température moyenne du mois)
-  → varie de ~150 kWh/mois (janvier) à ~450 kWh/mois (octobre)
+Monthly consumption per space ≈ f(month average temperature)
+  → ranges from ~150 kWh/month (January) to ~450 kWh/month (October)
 
-Coût mensuel   = locaux × conso_mois × 5.903 MRU/kWh
-Coût annuel    = Σ coût_mensuel (12 mois)
+Monthly cost   = spaces × monthly_consumption × 5.903 MRU/kWh
+Annual cost    = Σ monthly_cost (12 months)
                = 869 M MRU (central)</pre>
         </div>
       </div>
     </section>
 
-    <!-- Limits -->
-    <section class="section" id="limites">
+    <section class="section" id="limits">
       <div class="section-narrow reveal">
-        <h2>Limites et ce que nous ne comptons pas</h2>
-        <p>Toute analyse honnête doit nommer ce qu'elle ne capture pas. Voici les nôtres.</p>
+        <h2>Limitations and what we don't count</h2>
+        <p>Any honest analysis must name what it doesn't capture. Here are ours.</p>
 
         <div class="callout callout-red">
-          <h4>Non compté — Impact sanitaire</h4>
-          <p>Les hospitalisations liées à la chaleur, la mortalité, les effets chroniques sur la santé des travailleurs exposés. Ces coûts sont réels mais nécessitent des données épidémiologiques que nous n'avons pas.</p>
+          <h4>Not counted — Health impact</h4>
+          <p>Heat-related hospitalisations, mortality, chronic effects on exposed workers' health. These costs are real but require epidemiological data we don't have.</p>
         </div>
 
         <div class="callout callout-red">
-          <h4>Non compté — Coupures de courant</h4>
-          <p>Les délestages SOMELEC réduisent l'efficacité réelle de la climatisation. Un commerce climatisé qui subit 3 heures de coupure par jour en octobre ne bénéficie pas pleinement de son investissement. Nous n'avons pas de données fiables sur la fréquence et la durée des coupures.</p>
+          <h4>Not counted — Power outages</h4>
+          <p>SOMELEC load shedding reduces the effective benefit of air conditioning. A shop experiencing 3 hours of outages per day in October doesn't fully benefit from its investment. We lack reliable data on outage frequency and duration.</p>
         </div>
 
         <div class="callout callout-red">
-          <h4>Non compté — Secteur formel dégradé</h4>
-          <p>Les bureaux mal climatisés — ceux dont la clim ne tient pas face à la charge thermique, ou qui subissent les coupures. Ces travailleurs ne sont ni « exposés » ni « protégés » au sens de notre modèle.</p>
+          <h4>Not counted — Degraded formal sector</h4>
+          <p>Poorly air-conditioned offices — those whose AC can't handle the thermal load, or that suffer outages. These workers are neither "exposed" nor "protected" in our framework.</p>
         </div>
 
         <div class="callout callout-red">
-          <h4>Non compté — Agriculture périurbaine</h4>
-          <p>Les pertes de rendement agricole dans la ceinture maraîchère de Nouakchott. Le stress thermique affecte les plantes autant que les travailleurs, mais c'est un calcul différent.</p>
+          <h4>Not counted — Peri-urban agriculture</h4>
+          <p>Crop yield losses in Nouakchott's market garden belt. Heat stress affects plants as much as workers, but that's a different calculation.</p>
         </div>
 
-        <p class="mt-lg">Chacune de ces exclusions tire dans la même direction : le coût réel de la chaleur est probablement supérieur à nos estimations. Nous préférons un chiffre conservateur et défendable à un chiffre exhaustif et spéculatif.</p>
+        <p class="mt-lg">Each of these exclusions pulls in the same direction: the true cost of heat is likely higher than our estimates. We prefer a conservative, defensible number to an exhaustive, speculative one.</p>
 
         <div class="pullquote mt-xl">
-          <p>Nous n'avons rien modélisé. Nous avons observé la ville, et compté.</p>
+          <p>We didn't model anything. We observed the city, and counted.</p>
         </div>
       </div>
     </section>
@@ -200,15 +194,15 @@ Coût annuel    = Σ coût_mensuel (12 mois)
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">La Taxe <span>Canicule</span></div>
+      <div class="footer-brand">The Heat <span>Tax</span></div>
       <ul class="footer-links">
-        <li><a href="data.html">Données</a></li>
+        <li><a href="data.html">Data</a></li>
         <li><a href="https://github.com/agattbechar/nkc-heat-tax">GitHub</a></li>
-        <li><a href="https://mauritan.me">Nuits du Sahel</a></li>
+        <li><a href="https://mauritan.me">Sahel Nights</a></li>
       </ul>
-      <p class="footer-meta">Par <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritanie</p>
+      <p class="footer-meta">By <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritania</p>
     </div>
   </footer>
-  <script src="site.js"></script>
+  <script src="../site.js"></script>
 </body>
 </html>

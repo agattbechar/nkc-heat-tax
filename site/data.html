@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sources et données — La Taxe Canicule</title>
-  <meta name="description" content="Toutes les sources utilisées dans l'analyse, avec leur statut d'accès et le lien vers le dépôt GitHub.">
-  <link rel="stylesheet" href="style.css">
+  <title>Sources & Data — The Heat Tax</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <nav class="site-nav">
     <div class="nav-inner">
-      <a href="/" class="nav-brand">La Taxe <span>Canicule</span></a>
+      <a href="./" class="nav-brand">The Heat <span>Tax</span></a>
       <ul class="nav-links">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="curve.html">Courbe</a></li>
+        <li><a href="./">Home</a></li>
+        <li><a href="curve.html">Curve</a></li>
         <li><a href="compression.html">Compression</a></li>
-        <li><a href="premium.html">Climatisation</a></li>
-        <li><a href="shadow.html">Synthèse</a></li>
-        <li><a href="methodology.html">Méthode</a></li>
-        <li><a href="data.html" class="active">Données</a></li>
-        <li><span class="lang-switch"><a href="data.html" class="active">FR</a> / <a href="en/data.html">EN</a></span></li>
-        <li><a href="https://mauritan.me" class="nav-companion">Nuits du Sahel ↗</a></li>
+        <li><a href="premium.html">AC Premium</a></li>
+        <li><a href="shadow.html">Synthesis</a></li>
+        <li><a href="methodology.html">Method</a></li>
+        <li><a href="data.html" class="active">Data</a></li>
+        <li><span class="lang-switch"><a href="../data.html">FR</a> / <a href="data.html" class="active">EN</a></span></li>
+        <li><a href="https://mauritan.me" class="nav-companion">Sahel Nights ↗</a></li>
       </ul>
       <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -29,58 +28,58 @@
   <main class="page-body">
     <section class="section">
       <div class="section-narrow">
-        <p class="section-label fade-up">06 · Les données</p>
-        <h1 class="fade-up fade-up-d1">Sources et données</h1>
-        <p class="lead fade-up fade-up-d2">Tout ce qui entre dans l'analyse est listé ici, avec son statut d'accès. Si une source est payante ou restreinte, nous le disons.</p>
+        <p class="section-label fade-up">06 · Data</p>
+        <h1 class="fade-up fade-up-d1">Sources & data</h1>
+        <p class="lead fade-up fade-up-d2">Everything that goes into the analysis is listed here, with its access status. If a source is paywalled or restricted, we say so.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="section-narrow reveal">
-        <h2>Sources primaires</h2>
-        <p>Ce sont les sources dont les données alimentent directement les calculs.</p>
+        <h2>Primary sources</h2>
+        <p>These are the sources whose data directly feeds the calculations.</p>
 
         <ul class="source-list">
           <li>
-            <span class="source-badge badge-primary">Données</span>
+            <span class="source-badge badge-primary">Data</span>
             <div class="source-text">
               <strong>Open-Meteo Historical Weather API</strong><br>
-              Températures horaires, humidité relative, vitesse du vent pour Nouakchott (18.0858°N, −15.9785°W), 2019–2025. Accès libre, API gratuite.
+              Hourly temperature, relative humidity, wind speed for Nouakchott (18.0858°N, −15.9785°W), 2019–2025. Free access, open API.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Courbe</span>
+            <span class="source-badge badge-primary">Curve</span>
             <div class="source-text">
               <strong>ILO (2019), Working on a Warmer Planet</strong><br>
-              Rapport de l'Organisation Internationale du Travail sur l'impact du stress thermique sur la productivité. Contient les courbes de capacité de travail par niveau d'intensité. Accès libre (PDF sur ilo.org).
+              ILO report on heat stress and worker productivity. Contains work capacity curves by intensity level. Free access (PDF on ilo.org).
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Norme</span>
+            <span class="source-badge badge-primary">Standard</span>
             <div class="source-text">
               <strong>ISO 7243:2017</strong><br>
-              Norme internationale pour l'évaluation du stress thermique en milieu de travail. Définit les seuils WBGT par niveau d'activité. Accès payant (iso.org), mais les courbes sont reproduites dans le rapport ILO.
+              International standard for heat stress assessment in the workplace. Defines WBGT thresholds by activity level. Paid access (iso.org), but curves are reproduced in the ILO report.
             </div>
           </li>
           <li>
             <span class="source-badge badge-primary">Stock</span>
             <div class="source-text">
               <strong>JICA (2018), Nouakchott Urban Master Plan — Table I-14</strong><br>
-              Inventaire des espaces commerciaux de Nouakchott : 94 296 unités. Source la plus récente et la plus complète sur le tissu commercial de la ville. Accès libre (rapport JICA).
+              Inventory of Nouakchott's commercial spaces: 94,296 units. Most recent and comprehensive source on the city's commercial fabric. Free access (JICA report).
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Tarif</span>
+            <span class="source-badge badge-primary">Tariff</span>
             <div class="source-text">
-              <strong>SOMELEC — Grille tarifaire professionnelle</strong><br>
-              Tarif de 5.903 MRU/kWh pour les consommateurs professionnels. Vérifié sur la grille tarifaire publique de la SOMELEC.
+              <strong>SOMELEC — Professional tariff schedule</strong><br>
+              Rate of 5.903 MRU/kWh for professional consumers. Verified against SOMELEC's published tariff schedule.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-primary">Salaire</span>
+            <span class="source-badge badge-primary">Wage</span>
             <div class="source-text">
-              <strong>ILO ILOSTAT (2022) — SMIG Mauritanie</strong><br>
-              Salaire minimum : 3 000 MRU/mois. Utilisé comme unité de base pour les scénarios de salaire.
+              <strong>ILO ILOSTAT (2022) — Mauritania SMIG</strong><br>
+              Minimum wage: 3,000 MRU/month. Used as the base unit for wage scenarios.
             </div>
           </li>
         </ul>
@@ -89,29 +88,29 @@
 
     <section class="section">
       <div class="section-narrow reveal">
-        <h2>Sources de référence</h2>
-        <p>Ces sources contextualisent l'analyse mais n'alimentent pas directement les calculs.</p>
+        <h2>Reference sources</h2>
+        <p>These contextualise the analysis but don't directly feed the calculations.</p>
 
         <ul class="source-list">
           <li>
-            <span class="source-badge badge-reference">Contexte</span>
+            <span class="source-badge badge-reference">Context</span>
             <div class="source-text">
-              <strong>Banque Mondiale — Profil Mauritanie</strong><br>
-              Données macroéconomiques, PIB, population urbaine. Utilisées pour contextualiser les ordres de grandeur.
+              <strong>World Bank — Mauritania Profile</strong><br>
+              Macroeconomic data, GDP, urban population. Used to contextualise orders of magnitude.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-reference">Contexte</span>
+            <span class="source-badge badge-reference">Context</span>
             <div class="source-text">
-              <strong>ONS Mauritanie — Recensement et enquêtes emploi</strong><br>
-              Population active, taux d'urbanisation, structure de l'emploi. Utilisées pour valider l'estimation de 120 000 travailleurs exposés.
+              <strong>ONS Mauritania — Census and employment surveys</strong><br>
+              Working population, urbanisation rate, employment structure. Used to validate the 120,000 exposed worker estimate.
             </div>
           </li>
           <li>
-            <span class="source-badge badge-reference">Méthode</span>
+            <span class="source-badge badge-reference">Method</span>
             <div class="source-text">
               <strong>Liljegren et al. (2008)</strong><br>
-              Formule simplifiée de conversion température/humidité → WBGT. Publiée dans le Journal of Occupational and Environmental Hygiene.
+              Simplified formula for temperature/humidity → WBGT conversion. Published in the Journal of Occupational and Environmental Hygiene.
             </div>
           </li>
         </ul>
@@ -120,16 +119,16 @@
 
     <section class="section">
       <div class="section-narrow reveal">
-        <h2>Reproductibilité</h2>
-        <p>L'intégralité du code et des données est disponible sur GitHub. Vous pouvez reproduire chaque chiffre de cette analyse, modifier les hypothèses, et tester vos propres scénarios.</p>
+        <h2>Reproducibility</h2>
+        <p>All code and data are available on GitHub. You can reproduce every number in this analysis, modify assumptions, and test your own scenarios.</p>
 
         <div class="callout callout-amber">
-          <h4>Dépôt GitHub</h4>
+          <h4>GitHub repository</h4>
           <p><a href="https://github.com/agattbechar/nkc-heat-tax">github.com/agattbechar/nkc-heat-tax</a></p>
-          <p>Contient les scripts de téléchargement des données, les calculs de compression, les scénarios de coût, et le code source de ce site.</p>
+          <p>Contains data download scripts, compression calculations, cost scenarios, and this site's source code.</p>
         </div>
 
-        <p>Si vous trouvez une erreur, une hypothèse discutable, ou une meilleure source de données, ouvrez une issue sur le dépôt. Ce travail est ouvert précisément pour être contesté et amélioré.</p>
+        <p>If you find an error, a questionable assumption, or a better data source, open an issue on the repository. This work is open precisely so it can be challenged and improved.</p>
       </div>
     </section>
 
@@ -138,8 +137,8 @@
         <a href="https://mauritan.me" class="companion">
           <div class="companion-icon">☾</div>
           <div class="companion-text">
-            <h4>Le projet compagnon</h4>
-            <p>Les Nuits du Sahel utilise la même approche — données ouvertes, hypothèses déclarées, code public — pour mesurer ce que la chaleur fait à la vie nocturne de Nouakchott. Même philosophie, autre angle.</p>
+            <h4>The companion project</h4>
+            <p>Sahel Nights uses the same approach — open data, declared assumptions, public code — to measure what heat does to Nouakchott's nightlife. Same philosophy, different angle.</p>
             <span class="companion-link">mauritan.me →</span>
           </div>
         </a>
@@ -149,15 +148,15 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <div class="footer-brand">La Taxe <span>Canicule</span></div>
+      <div class="footer-brand">The Heat <span>Tax</span></div>
       <ul class="footer-links">
-        <li><a href="methodology.html">Méthode</a></li>
+        <li><a href="methodology.html">Method</a></li>
         <li><a href="https://github.com/agattbechar/nkc-heat-tax">GitHub</a></li>
-        <li><a href="https://mauritan.me">Nuits du Sahel</a></li>
+        <li><a href="https://mauritan.me">Sahel Nights</a></li>
       </ul>
-      <p class="footer-meta">Par <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritanie</p>
+      <p class="footer-meta">By <a href="https://github.com/agattbechar">Bechar Agatt</a> · Nouakchott, Mauritania</p>
     </div>
   </footer>
-  <script src="site.js"></script>
+  <script src="../site.js"></script>
 </body>
 </html>

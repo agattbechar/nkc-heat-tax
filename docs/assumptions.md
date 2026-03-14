@@ -79,4 +79,72 @@ STATUS: PLACEHOLDER — improve with INS data if available
 ## Exposed Workforce
 
 ASSUMPTION: Heat-exposed outdoor workers in Nouakchott: 100,000–150,000
-(centra
+(central estimate: 120,000).
+REASON: INS informal sector = 91.1% of non-agricultural private sector.
+Heat-exposed share (vendors + construction + transport + port): ~40%.
+SOURCE: INS Mauritanie; World Bank labor force data.
+STATUS: PLACEHOLDER — verify with INS survey
+
+---
+
+## AC Premium
+
+ASSUMPTION: Average commercial plot size: 120 m².
+REASON: Standard small boutique size in Nouakchott commercial areas.
+ALTERNATIVE: 100 m² would increase unit count by 20%.
+STATUS: PLACEHOLDER — improve with field observation
+
+---
+
+ASSUMPTION: AC penetration rate: 1 in 3 commercial spaces.
+REASON: Local knowledge — most Nouakchott commercial buildings have
+AC in the owner's room or back office only. Not full coverage.
+Conservative estimate.
+ALTERNATIVE: 1 in 5 (conservative) to 1 in 2 (upper). All three
+scenarios reported in ac_premium.csv.
+STATUS: LOCAL KNOWLEDGE — stated explicitly
+
+---
+
+ASSUMPTION: Standard AC unit = 2.5 kW (1-ton split unit).
+REASON: Most common unit size for small commercial spaces in Mauritania.
+ALTERNATIVE: Larger units (5kW) would double the estimate.
+STATUS: PLACEHOLDER — improve with field observation
+
+---
+
+ASSUMPTION: AC units run at 75% efficiency on average.
+REASON: Accounts for thermostat cycling, off periods, older units.
+ALTERNATIVE: 100% would increase cost by 33%.
+STATUS: VERIFIED — standard engineering assumption
+
+---
+
+ASSUMPTION: Government buildings included in AC premium at same
+penetration rate as commercial.
+REASON: Same SOMELEC rate applies (5.903 MRU/kWh, tariff 9106–9136).
+Government offices are heavily AC'd but not uniformly.
+STATUS: VERIFIED
+
+---
+
+## Shadow Output
+
+ASSUMPTION: Shadow Output is NOT a national accounts measure.
+It is a scalar applied to observed temperature patterns to estimate
+heat-induced compression. It does not correspond to GDP or any
+official statistic.
+REASON: To avoid any confusion with national accounts and stay
+within defensible descriptive analysis.
+STATUS: NON-NEGOTIABLE
+
+---
+
+## What This Analysis Does NOT Claim
+
+- Does NOT claim heat causes lower GDP
+- Does NOT predict future losses or climate change impacts
+- Does NOT cover agriculture or fishing sector
+- Does NOT represent all workers — outdoor/semi-outdoor only
+- Work capacity curve is for moderate work intensity only
+- All figures are lower bound estimates unless stated otherwise

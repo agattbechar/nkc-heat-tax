@@ -13,7 +13,7 @@ import requests
 import pandas as pd
 from pathlib import Path
 
-API_KEY = "82d9f8f8d5adcadaaa962a06b1e0b136fee629230474bc32d733be55c9ed304a"
+API_KEY = ""    # Your Serp API Key here 
 
 OUTPUT_DIR = Path(__file__).resolve().parents[2] / "data" / "raw" / "popular_times"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
